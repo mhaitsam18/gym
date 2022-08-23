@@ -54,7 +54,11 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
+        // 'auth.api' => \App\Http\Middleware\APIAuthenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'auth.member' => \App\Http\Middleware\CheckMember::class,
+        'auth.trainer' => \App\Http\Middleware\CheckTrainer::class,
+        'auth.pengelola' => \App\Http\Middleware\CheckPengelola::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
