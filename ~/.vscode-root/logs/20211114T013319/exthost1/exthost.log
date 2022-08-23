@@ -1,0 +1,68 @@
+[2021-11-14 01:33:24.891] [exthost] [info] extension host started
+[2021-11-14 01:33:24.953] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication {"startup":false,"extensionId":{"value":"vscode.microsoft-authentication","_lower":"vscode.microsoft-authentication"},"activationEvent":"onAuthenticationRequest:microsoft"}
+[2021-11-14 01:33:24.953] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/microsoft-authentication/dist/extension.js
+[2021-11-14 01:33:25.168] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"extensionId":{"value":"vscode.debug-auto-launch","_lower":"vscode.debug-auto-launch"},"activationEvent":"*"}
+[2021-11-14 01:33:25.168] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2021-11-14 01:33:25.426] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"extensionId":{"value":"vscode.emmet","_lower":"vscode.emmet"},"activationEvent":"*"}
+[2021-11-14 01:33:25.426] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain
+[2021-11-14 01:33:25.557] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2021-11-14 01:33:25.558] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/git/dist/main
+[2021-11-14 01:33:25.644] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"extensionId":{"value":"vscode.merge-conflict","_lower":"vscode.merge-conflict"},"activationEvent":"*"}
+[2021-11-14 01:33:25.644] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/merge-conflict/dist/mergeConflictMain
+[2021-11-14 01:33:25.786] [exthost] [info] ExtensionService#_doActivateExtension vscode.search-result {"startup":true,"extensionId":{"value":"vscode.search-result","_lower":"vscode.search-result"},"activationEvent":"*"}
+[2021-11-14 01:33:25.786] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/search-result/dist/extension.js
+[2021-11-14 01:33:25.868] [exthost] [info] ExtensionService#_doActivateExtension gornivv.vscode-flutter-files {"startup":true,"extensionId":{"value":"gornivv.vscode-flutter-files","_lower":"gornivv.vscode-flutter-files"},"activationEvent":"*"}
+[2021-11-14 01:33:25.868] [exthost] [info] ExtensionService#loadCommonJSModule file:///root/.vscode/extensions/gornivv.vscode-flutter-files-4.1.1/out/extension.js
+[2021-11-14 01:33:26.043] [exthost] [info] ExtensionService#_doActivateExtension kiteco.kite {"startup":true,"extensionId":{"value":"kiteco.kite","_lower":"kiteco.kite"},"activationEvent":"*"}
+[2021-11-14 01:33:26.043] [exthost] [info] ExtensionService#loadCommonJSModule file:///root/.vscode/extensions/kiteco.kite-0.147.0/dist/kite-extension
+[2021-11-14 01:33:26.221] [exthost] [error] Activating extension gornivv.vscode-flutter-files failed due to an error:
+[2021-11-14 01:33:26.221] [exthost] [error] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+	at validateString (internal/validators.js:112:11)
+	at Object.join (path.js:1039:7)
+	at t.ConfigurationManagerExt.getFiles (/root/.vscode/extensions/gornivv.vscode-flutter-files-4.1.1/out/extension.js:1:45382)
+	at t.ConfigurationManagerExt.watchConfigFiles (/root/.vscode/extensions/gornivv.vscode-flutter-files-4.1.1/out/extension.js:1:45936)
+	at /root/.vscode/extensions/gornivv.vscode-flutter-files-4.1.1/out/extension.js:1:52731
+	at Generator.next (<anonymous>)
+	at /root/.vscode/extensions/gornivv.vscode-flutter-files-4.1.1/out/extension.js:1:52151
+	at new Promise (<anonymous>)
+	at i (/root/.vscode/extensions/gornivv.vscode-flutter-files-4.1.1/out/extension.js:1:51896)
+	at t.activate (/root/.vscode/extensions/gornivv.vscode-flutter-files-4.1.1/out/extension.js:1:52337)
+	at Function._callActivateOptional (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:960:773)
+	at Function._callActivate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:960:424)
+	at /usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:958:841
+	at processTicksAndRejections (internal/process/task_queues.js:94:5)
+	at async Promise.all (index 5)
+	at async Promise.all (index 0)
+[2021-11-14 01:33:26.268] [exthost] [info] ExtensionService#_doActivateExtension vscode.github {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2021-11-14 01:33:26.268] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github/dist/extension.js
+[2021-11-14 01:33:26.359] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.js-debug {"startup":false,"extensionId":{"value":"ms-vscode.js-debug","_lower":"ms-vscode.js-debug"},"activationEvent":"onCommand:extension.js-debug.clearAutoAttachVariables"}
+[2021-11-14 01:33:26.359] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/ms-vscode.js-debug/src/extension.js
+[2021-11-14 01:33:26.961] [exthost] [info] eager extensions activated
+[2021-11-14 01:33:26.998] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication {"startup":false,"extensionId":{"value":"vscode.github-authentication","_lower":"vscode.github-authentication"},"activationEvent":"onAuthenticationRequest:github"}
+[2021-11-14 01:33:26.998] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github-authentication/dist/extension.js
+[2021-11-14 01:33:46.908] [exthost] [info] extension host started
+[2021-11-14 01:33:46.928] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication {"startup":false,"extensionId":{"value":"vscode.microsoft-authentication","_lower":"vscode.microsoft-authentication"},"activationEvent":"onAuthenticationRequest:microsoft"}
+[2021-11-14 01:33:46.928] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/microsoft-authentication/dist/extension.js
+[2021-11-14 01:33:46.935] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"extensionId":{"value":"vscode.debug-auto-launch","_lower":"vscode.debug-auto-launch"},"activationEvent":"*"}
+[2021-11-14 01:33:46.935] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/debug-auto-launch/dist/extension
+[2021-11-14 01:33:46.936] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":true,"extensionId":{"value":"vscode.emmet","_lower":"vscode.emmet"},"activationEvent":"*"}
+[2021-11-14 01:33:46.936] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/emmet/dist/node/emmetNodeMain
+[2021-11-14 01:33:46.945] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2021-11-14 01:33:46.945] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/git/dist/main
+[2021-11-14 01:33:46.956] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"extensionId":{"value":"vscode.merge-conflict","_lower":"vscode.merge-conflict"},"activationEvent":"*"}
+[2021-11-14 01:33:46.956] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/merge-conflict/dist/mergeConflictMain
+[2021-11-14 01:33:46.958] [exthost] [info] ExtensionService#_doActivateExtension vscode.search-result {"startup":true,"extensionId":{"value":"vscode.search-result","_lower":"vscode.search-result"},"activationEvent":"*"}
+[2021-11-14 01:33:46.958] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/search-result/dist/extension.js
+[2021-11-14 01:33:46.959] [exthost] [info] ExtensionService#_doActivateExtension gornivv.vscode-flutter-files {"startup":true,"extensionId":{"value":"gornivv.vscode-flutter-files","_lower":"gornivv.vscode-flutter-files"},"activationEvent":"*"}
+[2021-11-14 01:33:46.959] [exthost] [info] ExtensionService#loadCommonJSModule file:///root/.vscode/extensions/gornivv.vscode-flutter-files-4.1.1/out/extension.js
+[2021-11-14 01:33:46.961] [exthost] [info] ExtensionService#_doActivateExtension kiteco.kite {"startup":true,"extensionId":{"value":"kiteco.kite","_lower":"kiteco.kite"},"activationEvent":"*"}
+[2021-11-14 01:33:46.961] [exthost] [info] ExtensionService#loadCommonJSModule file:///root/.vscode/extensions/kiteco.kite-0.147.0/dist/kite-extension
+[2021-11-14 01:33:46.970] [exthost] [info] ExtensionService#_doActivateExtension vscode.npm {"startup":true,"extensionId":{"value":"vscode.npm","_lower":"vscode.npm"},"activationEvent":"workspaceContains:package.json"}
+[2021-11-14 01:33:46.970] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/npm/dist/npmMain
+[2021-11-14 01:33:47.281] [exthost] [info] ExtensionService#_doActivateExtension vscode.github {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2021-11-14 01:33:47.281] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github/dist/extension.js
+[2021-11-14 01:33:47.345] [exthost] [info] ExtensionService#_doActivateExtension ms-vscode.js-debug {"startup":false,"extensionId":{"value":"ms-vscode.js-debug","_lower":"ms-vscode.js-debug"},"activationEvent":"onCommand:extension.js-debug.clearAutoAttachVariables"}
+[2021-11-14 01:33:47.345] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/ms-vscode.js-debug/src/extension.js
+[2021-11-14 01:33:47.476] [exthost] [info] eager extensions activated
+[2021-11-14 01:33:47.564] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication {"startup":false,"extensionId":{"value":"vscode.github-authentication","_lower":"vscode.github-authentication"},"activationEvent":"onAuthenticationRequest:github"}
+[2021-11-14 01:33:47.564] [exthost] [info] ExtensionService#loadCommonJSModule file:///usr/share/code/resources/app/extensions/github-authentication/dist/extension.js

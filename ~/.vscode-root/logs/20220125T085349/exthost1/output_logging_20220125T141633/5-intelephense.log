@@ -1,0 +1,10 @@
+[Info  - 2:16:33 PM] Initialising intelephense 1.8.0
+[Info  - 2:16:33 PM] Initialised in 9 ms
+[Info  - 2:16:33 PM] Environment changed. Refreshing 1 in memory documents.
+[Info  - 2:16:33 PM] Searching file:///root/.vscode/extensions/bmewburn.vscode-intelephense-client-1.8.0/node_modules/intelephense/lib/stub for files to index.
+[Info  - 2:16:33 PM] Searching file:///home/egan06/pribadi/laravel/pdjarum for files to index.
+[Warn  - 2:16:33 PM] file:///home/egan06/pribadi/laravel/pdjarum/vendor/fakerphp/faker/src/Faker/Provider/nl_BE/Text.php is over the maximum file size of 1000000 bytes.
+[Info  - 2:16:33 PM] Indexing started.
+[Info  - 2:16:45 PM] Indexing ended. 7381 files indexed in 12s.
+[Info  - 2:16:45 PM] Writing state to /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/User/workspaceStorage/49d7e48db1ab7b20f34bb23d1f2cd674/bmewburn.vscode-intelephense-client/77a4cc9.
+[Info  - 2:16:46 PM] Wrote state in 1.0s.

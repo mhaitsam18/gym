@@ -1,0 +1,82 @@
+[2022-01-25 14:14:46.300] [renderer1] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/home/egan06/pribadi/laravel/pdjarum/.vscode'
+[2022-01-25 14:14:46.357] [renderer1] [error] connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock: Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:14:46.458] [renderer1] [error] connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock: Unknown (UserDataSyncError) syncResource:unknown operationId:unknown: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at Function.e.toUserDataSyncError (file:///usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2968:636)
+    at file:///usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:6291:277
+[2022-01-25 14:14:46.458] [renderer1] [error] connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock: Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:14:48.225] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:14:48.225] [renderer1] [warning] Settings Sync: Accounts are not initialized
+[2022-01-25 14:14:48.766] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:14:48.807] [renderer1] [error] connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock: Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:14:48.808] [renderer1] [error] Error: [File Watcher (chokidar)] Inotify limit reached (ENOSPC)
+[2022-01-25 14:14:48.809] [renderer1] [error] [File Watcher (chokidar)] Inotify limit reached (ENOSPC)
+[2022-01-25 14:15:25.431] [renderer1] [error] connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock: Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:16:31.997] [renderer1] [error] connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock: Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:19:48.768] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:22:56.078] [renderer1] [error] connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock: Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:24:48.770] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:29:48.771] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:34:48.241] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:39:48.241] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:44:48.242] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:49:48.243] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:54:48.245] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 14:59:48.247] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:04:48.249] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:09:48.251] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:14:48.252] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:19:48.256] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:19:56.149] [renderer1] [error] name must not be falsy: Error: name must not be falsy
+	at Function.validate (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:545:978)
+	at new I (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:545:927)
+	at new I (/usr/share/code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:531:904)
+	at asSymbolInformation (/root/.vscode/extensions/zobo.php-intellisense-1.0.3/node_modules/vscode-languageclient/lib/protocolConverter.js:347:22)
+	at /root/.vscode/extensions/zobo.php-intellisense-1.0.3/node_modules/vscode-languageclient/lib/protocolConverter.js:336:42
+	at Array.map (<anonymous>)
+	at Object.asSymbolInformations (/root/.vscode/extensions/zobo.php-intellisense-1.0.3/node_modules/vscode-languageclient/lib/protocolConverter.js:336:23)
+	at /root/.vscode/extensions/zobo.php-intellisense-1.0.3/node_modules/vscode-languageclient/lib/client.js:1002:62
+[2022-01-25 15:24:48.258] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:29:48.260] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:34:48.262] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:39:48.264] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:44:48.266] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:49:48.268] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:54:48.269] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 15:59:48.330] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 16:04:48.338] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 16:09:48.339] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 16:14:48.340] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
+[2022-01-25 16:19:48.342] [renderer1] [error] Error: connect ENOENT /home/egan06/pribadi/laravel/pdjarum/~/.vscode-root/1.52.1-shared.sock
+    at PipeConnectWrap.afterConnect [as oncomplete] (net.js:1134:16)
