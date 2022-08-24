@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2022 at 06:40 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.15
+-- Generation Time: Aug 24, 2022 at 02:00 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -380,6 +380,29 @@ CREATE TABLE `reservations` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Member', '2022-08-24 10:27:56', '2022-08-24 10:27:56'),
+(2, 'Trainer', '2022-08-24 10:27:56', '2022-08-24 10:27:56'),
+(3, 'Pengelola', '2022-08-24 10:27:56', '2022-08-24 10:27:56'),
+(4, 'Administrator', '2022-08-24 10:27:56', '2022-08-24 10:27:56');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sessions`
 --
 
@@ -498,6 +521,7 @@ INSERT INTO `ukurs` (`id`, `user_id`, `bd`, `b`, `vf`, `cd`, `bmi`, `ma`, `sf`, 
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `role_id` bigint(20) UNSIGNED DEFAULT 1,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `usertype` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
@@ -524,23 +548,24 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `username`, `usertype`, `email`, `member_sampai`, `trainer`, `email_verified_at`, `password`, `bukti_tf`, `jk_user`, `tgl_lahir`, `alamat`, `nomer_hp`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'a', '', '1', 'a@a', NULL, NULL, NULL, '123123123\r\n', NULL, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'salman', '', '1', 'a@gmail.com', NULL, NULL, NULL, '123123123', NULL, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'alip', '', '1', 'alip@gmail.com', NULL, NULL, NULL, '$2y$10$pfRP1NrXCgE3ibjGDk8Fb.EIwEPeUolhEEGGvrkdJROuErnuoJgOe', NULL, '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-04-19 11:46:06', '2022-04-19 11:46:06'),
-(5, 'egan', '', '1', 'e@gmail.com', NULL, NULL, NULL, '$2y$10$skYn1qo0ehnRrr1n.AyHjuQN4BIFvX9rfCl2lIaGnuj1/kh5HrgDi', NULL, '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-04-22 11:35:20', '2022-04-22 11:35:20'),
-(6, 'user1', '', '2', 'user@gmail.com', '2022-05-25 07:51:16', NULL, NULL, '$2y$10$sGn.DA.96xjEyTEZXD.7zuWRuO02itdhW/qrLD6Dxrl8Eofkix1qa', '1650873076.jpg', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-04-25 11:44:07', '2022-04-25 11:51:16'),
-(7, 'tes', '', '2', 'tes@gmail.com', '2022-05-26 13:37:27', NULL, NULL, '$2y$10$0MtNMd4zOdq5LK63kqIGieOy6LTGVQhaFVUBTQJH3DXQYexnOUuMm', '1650980247.png', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-04-26 06:37:07', '2022-04-26 06:37:27'),
-(8, 'srilindays', '', '2', 'sril@gmail.com', '2022-06-11 12:21:39', 'Juani Ft', NULL, '$2y$10$V5t7n0TPYwLJHu1n5r.65eE0cPZZB1e9rHxFemCVG0SyxviNSJFNy', '1652271699.png', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-05-11 05:20:41', '2022-05-11 05:22:21'),
-(10, 'user10', '', '2', '10@gmail.com', '2022-07-01 11:23:51', NULL, NULL, '$2y$10$lSspKqTHWLMquxyZPnmTU.T/JsC7E.znsAgA8iGwo91VygkEo8S/u', '1654082631.jpg', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-06-01 03:23:32', '2022-06-01 04:23:51'),
-(12, 'tester', 'aaaa', '2', 'tester@tester', '2022-08-21 07:05:26', NULL, NULL, '$2y$10$ktQg.JpVPUmcDV2VKUkFRukg5YAcc4K.WBrperWyl5c/mhEY.VMLm', '1658387126.jpg', 'Laki-Laki', '2022-07-21', 'aaaa', 'aaa', NULL, NULL, NULL, NULL, '1658400585.jpeg', '2022-07-20 23:49:33', '2022-07-21 03:49:45'),
-(22, 'sria', NULL, '1', 'sria@gmail.com', NULL, NULL, NULL, '$2y$10$sSR8iDV7SlhIUC2vdNI97e/Gvo.ZijjdTQ3SV0t87Yu2wKaqovEMu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-07-21 21:07:26', '2022-07-21 21:07:26'),
-(23, 'aku', NULL, '1', 'aku@aku', NULL, NULL, NULL, '$2y$10$MXVrjmv6dA/ceDcXXmKTwOoABBt4lqklhTluHvK2.SrCLjsShfvEi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-07-21 21:17:04', '2022-07-21 21:17:04'),
-(24, 'riri', 'rianashinta', '2', 'riri@gmail.com', '2022-08-22 12:10:49', 'Juani Ft', NULL, '$2y$10$MCfI2yaTobOgwLlsMZvRsuAQBrYEIYf1P0iF6IpkIDNlgU5MXvLxy', '1658491849.jpg', 'Perempuan', '2022-07-27', 'Bandung', '0899999999999', NULL, NULL, NULL, NULL, '1658492009.jpg', '2022-07-22 05:10:12', '2022-07-22 05:13:29'),
-(25, 'testing', NULL, '1', 'testing@gmail.com', NULL, NULL, NULL, '$2y$10$q2GB1Mx6LvYqbY0lTxWy1ef.dNYKHeXzFzjh0blYQXzfZt/U/qPdC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-08-01 21:24:45', '2022-08-01 21:24:45'),
-(26, 'riana', 'rianashinta', '2', 'riana@gmail.com', '2022-09-06 09:34:24', 'Juani Ft', NULL, '$2y$10$SGlJ9UdfwVZBIU8WgNE.7OBMCEoUBthF7/U0o4BMHRaU5UzBAr9Nm', '1659778464.jpg', 'Perempuan', '2022-08-17', 'Bandung', '08999101010', NULL, NULL, NULL, NULL, '1659778545.jpg', '2022-08-06 02:33:37', '2022-08-06 02:40:33'),
-(27, 'ci', NULL, '1', 'ci@gmail.com', NULL, NULL, NULL, '$2y$10$QjrGD2PsDHt/vCTq5ZNBAOlB/sxN38zg02jyENxzKYYJ1eGt5yaEe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-08-11 11:25:55', '2022-08-11 11:25:55'),
-(28, 'tal', 'tal', '2', 'tal@gmail.com', '2022-09-11 18:54:00', NULL, NULL, '$2y$10$smxLeHyZZ8m5uCrrHasSX.bB6DJvpr0vU2uB82i8gzZHfPRjJIkaO', '1660244040.jpeg', 'Perempuan', '2022-08-02', 'tal', '1111111111', NULL, NULL, NULL, NULL, '1660243303.jpeg', '2022-08-11 11:29:19', '2022-08-11 11:54:00');
+INSERT INTO `users` (`id`, `role_id`, `name`, `username`, `usertype`, `email`, `member_sampai`, `trainer`, `email_verified_at`, `password`, `bukti_tf`, `jk_user`, `tgl_lahir`, `alamat`, `nomer_hp`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
+(1, 1, 'a', '', '1', 'a@a', NULL, NULL, NULL, '123123123\r\n', NULL, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 1, 'salman', '', '1', 'a@gmail.com', NULL, NULL, NULL, '123123123', NULL, '', '', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(4, 1, 'alip', '', '1', 'alip@gmail.com', NULL, NULL, NULL, '$2y$10$pfRP1NrXCgE3ibjGDk8Fb.EIwEPeUolhEEGGvrkdJROuErnuoJgOe', NULL, '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-04-19 11:46:06', '2022-04-19 11:46:06'),
+(5, 1, 'egan', '', '1', 'e@gmail.com', NULL, NULL, NULL, '$2y$10$skYn1qo0ehnRrr1n.AyHjuQN4BIFvX9rfCl2lIaGnuj1/kh5HrgDi', NULL, '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-04-22 11:35:20', '2022-04-22 11:35:20'),
+(6, 1, 'user1', '', '2', 'user@gmail.com', '2022-05-25 07:51:16', NULL, NULL, '$2y$10$sGn.DA.96xjEyTEZXD.7zuWRuO02itdhW/qrLD6Dxrl8Eofkix1qa', '1650873076.jpg', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-04-25 11:44:07', '2022-04-25 11:51:16'),
+(7, 1, 'tes', '', '2', 'tes@gmail.com', '2022-05-26 13:37:27', NULL, NULL, '$2y$10$0MtNMd4zOdq5LK63kqIGieOy6LTGVQhaFVUBTQJH3DXQYexnOUuMm', '1650980247.png', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-04-26 06:37:07', '2022-04-26 06:37:27'),
+(8, 1, 'srilindays', '', '2', 'sril@gmail.com', '2022-06-11 12:21:39', 'Juani Ft', NULL, '$2y$10$V5t7n0TPYwLJHu1n5r.65eE0cPZZB1e9rHxFemCVG0SyxviNSJFNy', '1652271699.png', '', '', '', '', NULL, NULL, NULL, NULL, '1658400585.jpeg', '2022-05-11 05:20:41', '2022-05-11 05:22:21'),
+(10, 1, 'user10', '', '2', '10@gmail.com', '2022-07-01 11:23:51', NULL, NULL, '$2y$10$lSspKqTHWLMquxyZPnmTU.T/JsC7E.znsAgA8iGwo91VygkEo8S/u', '1654082631.jpg', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-06-01 03:23:32', '2022-06-01 04:23:51'),
+(12, 1, 'tester', 'aaaa', '2', 'tester@tester', '2022-08-21 07:05:26', NULL, NULL, '$2y$10$ktQg.JpVPUmcDV2VKUkFRukg5YAcc4K.WBrperWyl5c/mhEY.VMLm', '1658387126.jpg', 'Laki-Laki', '2022-07-21', 'aaaa', 'aaa', NULL, NULL, NULL, NULL, '1658400585.jpeg', '2022-07-20 23:49:33', '2022-07-21 03:49:45'),
+(22, 1, 'sria', NULL, '1', 'sria@gmail.com', NULL, NULL, NULL, '$2y$10$sSR8iDV7SlhIUC2vdNI97e/Gvo.ZijjdTQ3SV0t87Yu2wKaqovEMu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-07-21 21:07:26', '2022-07-21 21:07:26'),
+(23, 1, 'aku', NULL, '1', 'aku@aku', NULL, NULL, NULL, '$2y$10$MXVrjmv6dA/ceDcXXmKTwOoABBt4lqklhTluHvK2.SrCLjsShfvEi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-07-21 21:17:04', '2022-07-21 21:17:04'),
+(24, 1, 'riri', 'rianashinta', '2', 'riri@gmail.com', '2022-08-22 12:10:49', 'Juani Ft', NULL, '$2y$10$MCfI2yaTobOgwLlsMZvRsuAQBrYEIYf1P0iF6IpkIDNlgU5MXvLxy', '1658491849.jpg', 'Perempuan', '2022-07-27', 'Bandung', '0899999999999', NULL, NULL, NULL, NULL, '1658492009.jpg', '2022-07-22 05:10:12', '2022-07-22 05:13:29'),
+(25, 1, 'testing', NULL, '1', 'testing@gmail.com', NULL, NULL, NULL, '$2y$10$q2GB1Mx6LvYqbY0lTxWy1ef.dNYKHeXzFzjh0blYQXzfZt/U/qPdC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-08-01 21:24:45', '2022-08-01 21:24:45'),
+(26, 1, 'riana', 'rianashinta', '2', 'riana@gmail.com', '2022-09-06 09:34:24', 'Juani Ft', NULL, '$2y$10$SGlJ9UdfwVZBIU8WgNE.7OBMCEoUBthF7/U0o4BMHRaU5UzBAr9Nm', '1659778464.jpg', 'Perempuan', '2022-08-17', 'Bandung', '08999101010', NULL, NULL, NULL, NULL, '1659778545.jpg', '2022-08-06 02:33:37', '2022-08-06 02:40:33'),
+(27, 1, 'ci', NULL, '1', 'ci@gmail.com', NULL, NULL, NULL, '$2y$10$QjrGD2PsDHt/vCTq5ZNBAOlB/sxN38zg02jyENxzKYYJ1eGt5yaEe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-08-11 11:25:55', '2022-08-11 11:25:55'),
+(28, 1, 'tal', 'tal', '2', 'tal@gmail.com', '2022-09-11 18:54:00', NULL, NULL, '$2y$10$smxLeHyZZ8m5uCrrHasSX.bB6DJvpr0vU2uB82i8gzZHfPRjJIkaO', '1660244040.jpeg', 'Perempuan', '2022-08-02', 'tal', '1111111111', NULL, NULL, NULL, NULL, '1660243303.jpeg', '2022-08-11 11:29:19', '2022-08-11 11:54:00'),
+(29, 2, 'Abdiel', NULL, '2', 'abdiel@gmail.com', NULL, NULL, NULL, '$2y$10$cqtIOL5mOQnxKLJdDCqUeO9x1fCG6vkTC6V5GINjteQz4f0ZPPsXK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-08-23 22:50:38', '2022-08-23 22:50:38');
 
 --
 -- Indexes for dumped tables
@@ -630,6 +655,12 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `teams`
 --
 ALTER TABLE `teams`
@@ -660,6 +691,12 @@ ALTER TABLE `bodyfitts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
@@ -675,7 +712,7 @@ ALTER TABLE `ukurs`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
