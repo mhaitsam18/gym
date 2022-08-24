@@ -46,10 +46,10 @@ class HomeController extends Controller
         $foto = User::where('id', $id)->value('profile_photo_path');
         switch ($role_id) {
             case 1:
-                # code...
+                return view('admin.adminhome', compact('data2', 'usertype', 'foto'));
                 break;
             case 2:
-                # code...
+                return view('trainer.home.index', compact('data2', 'usertype', 'foto'));
                 break;
 
             default:
@@ -59,6 +59,5 @@ class HomeController extends Controller
                 return redirect('/login');
                 break;
         }
-        return view('admin.adminhome', compact('data2', 'usertype', 'foto'));
     }
 }

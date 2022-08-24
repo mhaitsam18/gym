@@ -10,6 +10,7 @@ use App\Http\Controllers\AtlitController;
 use App\Http\Controllers\MemberController;
 
 use App\Http\Controllers\PelatihController;
+use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\MapLocation;
 
@@ -79,6 +80,11 @@ Route::middleware(['auth:web'])->group(function () {
     });
 
     Route::middleware(['auth.trainer'])->group(function () {
+        Route::prefix('trainer')->group(function () {
+            Route::get('/', [TrainerController::class, 'index'])->name("trainer.index");
+        });
+
+
         Route::get('/pelatihjl', [PelatihController::class, 'viewjadwallatihan']);
         Route::post('/uploadjadwal', [PelatihController::class, 'uploadjadwal']);
         Route::get('/homepelatih', [PelatihController::class, 'homepelatih']);
