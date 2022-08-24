@@ -19,9 +19,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-
         if (Auth::id()) {
-
             return redirect('redirects');
         } else
 
@@ -31,20 +29,36 @@ class HomeController extends Controller
 
 
 
-    public function redirects()
+    public function redirects(Request $request)
     {
-
-
-        $data2 = foodchef::all();
+        if (!auth()->user()) {
+            return redirect('/login');
+        }
+        // $data2 = foodchef::all();
 
         $usertype = Auth::user()->usertype;
+        $role_id = Auth::user()->role_id;
 
 
         $id = Auth::user()->id;
-        // dd($usertype);
         $data2 = User::where('id', $id)->value('name');
 
         $foto = User::where('id', $id)->value('profile_photo_path');
-        return view('admin.adminhome', compact('data2', 'usertype','foto'));
+        switch ($role_id) {
+            case 1:
+                # code...
+                break;
+            case 2:
+                # code...
+                break;
+
+            default:
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                return redirect('/login');
+                break;
+        }
+        return view('admin.adminhome', compact('data2', 'usertype', 'foto'));
     }
 }

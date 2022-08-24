@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LocationController;
+use App\Http\Livewire\MapLocation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/location', [App\Http\Controllers\LocationController::class,'index']);
+// Route::get('/location', [App\Http\Controllers\LocationController::class, 'index']);

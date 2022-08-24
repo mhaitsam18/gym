@@ -32,6 +32,7 @@
                             @if (session('status'))
                             <div class="mb-4 font-medium text-sm text-green-600">
                                 {{ session('status') }}
+                                {{ session('role_salah') }}
                             </div>
                             @endif
                             <form method="POST" action="{{ route('login') }}">

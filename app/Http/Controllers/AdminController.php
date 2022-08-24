@@ -25,7 +25,11 @@ class AdminController extends Controller
   public function user()
   {
     $data = user::all();
-    return view("admin.users", compact("data"));
+    $id = Auth::user()->id;
+    $usertype = Auth::user()->usertype;
+    $data2 = User::where('id', $id)->value('name');
+    $foto = User::where('id', $id)->value('profile_photo_path');
+    return view("admin.users", compact("data", "usertype", "data2", "foto"));
   }
 
   public function viewadminjl()
@@ -483,19 +487,5 @@ class AdminController extends Controller
     $data->save();
 
     return redirect()->back();
-  }
-
-  public function editprofile()
-  {
-    $id = Auth::user()->id;
-    $data2 = User::where('id', $id)->value('name');
-    $foto = User::where('id', $id)->value('profile_photo_path');
-    $usertype = Auth::user()->usertype;
-    $data = User::where('id', $id)->first();
-    return view('admin.editprofil', compact('data2', 'usertype', 'data', 'foto'));
-  }
-
-  public function editprofileee()
-  {
   }
 }
