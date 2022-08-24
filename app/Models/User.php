@@ -37,6 +37,10 @@ class User extends Authenticatable
         'nomer_hp',
     ];
 
+    protected $with = [
+        'role'
+    ];
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -66,4 +70,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

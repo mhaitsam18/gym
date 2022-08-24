@@ -488,4 +488,14 @@ class AdminController extends Controller
 
     return redirect()->back();
   }
+
+  public function editprofile()
+  {
+    $id = Auth::user()->id;
+    $data2 = User::where('id', $id)->value('name');
+    $foto = User::where('id', $id)->value('profile_photo_path');
+    $usertype = Auth::user()->usertype;
+    $data = User::where('id', $id)->first();
+    return view('admin.editprofil', compact('data2', 'usertype', 'data', 'foto'));
+  }
 }

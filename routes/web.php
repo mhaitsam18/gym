@@ -10,7 +10,14 @@ use App\Http\Controllers\AtlitController;
 use App\Http\Controllers\MemberController;
 
 use App\Http\Controllers\PelatihController;
+use App\Http\Controllers\TrainerAbsensiController;
+use App\Http\Controllers\TrainerAssessmentController;
+use App\Http\Controllers\TrainerBodyMassIndexController;
+use App\Http\Controllers\TrainerBodyMeasurementController;
 use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\TrainerJadwalController;
+use App\Http\Controllers\TrainerMemberController;
+use App\Http\Controllers\TrainerProgramLatihanController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\MapLocation;
 
@@ -43,13 +50,13 @@ Route::middleware(['auth:web'])->group(function () {
 
     Route::get("/redirects", [HomeController::class, "redirects"]);
     Route::get("/users", [AdminController::class, "user"]);
-    Route::get('/editprofile', [UserController::class, 'editprofile']);
+    Route::get('/editprofile', [UserController::class, 'editprofile'])->name('user.profile.show');
 
     Route::middleware(['auth.member'])->group(function () {
         Route::get('event', [AdminController::class, 'index']);
         Route::get('ukur', [AdminController::class, 'ukur']);
         Route::get('member', [AdminController::class, 'member']);
-        Route::get('trainer', [AdminController::class, 'trainer']);
+        // Route::get('trainer', [AdminController::class, 'trainer']);
         Route::get('fitt', [AdminController::class, 'fitt']);
 
         Route::post('/uploadtrainer1/{id}', [AdminController::class, 'uploadtrainer1']);
@@ -82,6 +89,28 @@ Route::middleware(['auth:web'])->group(function () {
     Route::middleware(['auth.trainer'])->group(function () {
         Route::prefix('trainer')->group(function () {
             Route::get('/', [TrainerController::class, 'index'])->name("trainer.index");
+
+            Route::prefix('jadwal')->group(function () {
+                Route::get('/', [TrainerJadwalController::class, 'index'])->name("trainer.jadwal");
+            });
+            Route::prefix('absensi')->group(function () {
+                Route::get('/', [TrainerAbsensiController::class, 'index'])->name("trainer.absensi");
+            });
+            Route::prefix('program-latihan')->group(function () {
+                Route::get('/', [TrainerProgramLatihanController::class, 'index'])->name("trainer.program-latihan");
+            });
+            Route::prefix('assessment')->group(function () {
+                Route::get('/', [TrainerAssessmentController::class, 'index'])->name("trainer.assessment");
+            });
+            Route::prefix('member')->group(function () {
+                Route::get('/', [TrainerMemberController::class, 'index'])->name("trainer.member");
+            });
+            Route::prefix('body-measurement')->group(function () {
+                Route::get('/', [TrainerBodyMeasurementController::class, 'index'])->name("trainer.body-measurement");
+            });
+            Route::prefix('body-mass-index')->group(function () {
+                Route::get('/', [TrainerBodyMassIndexController::class, 'index'])->name("trainer.body-mass-index");
+            });
         });
 
 

@@ -1,15 +1,15 @@
-<script src="admin/assets/vendors/js/vendor.bundle.base.js"></script>
-<script src="admin/assets/vendors/chart.js/Chart.min.js"></script>
-<script src="admin/assets/vendors/progressbar.js/progressbar.min.js"></script>
-<script src="admin/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
-<script src="admin/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<script src="admin/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
-<script src="admin/assets/js/off-canvas.js"></script>
-<script src="admin/assets/js/hoverable-collapse.js"></script>
-<script src="admin/assets/js/misc.js"></script>
-<script src="admin/assets/js/settings.js"></script>
-<script src="admin/assets/js/todolist.js"></script>
-<script src="admin/assets/js/dashboard.js"></script>
+<script src="/admin/assets/vendors/js/vendor.bundle.base.js"></script>
+<script src="/admin/assets/vendors/chart.js/Chart.min.js"></script>
+<script src="/admin/assets/vendors/progressbar.js/progressbar.min.js"></script>
+<script src="/admin/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+<script src="/admin/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="/admin/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+<script src="/admin/assets/js/off-canvas.js"></script>
+<script src="/admin/assets/js/hoverable-collapse.js"></script>
+<script src="/admin/assets/js/misc.js"></script>
+<script src="/admin/assets/js/settings.js"></script>
+<script src="/admin/assets/js/todolist.js"></script>
+<script src="/admin/assets/js/dashboard.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> --}}

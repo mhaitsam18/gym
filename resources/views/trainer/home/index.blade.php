@@ -4,6 +4,7 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
+                <h2>{{ $title }}</h2>
                 <center>
                     <div class="w3-content" style="max-width:1100px">
                         <img class="mySlides" src="/slider/1.jpg" style="width:50%;display:none">

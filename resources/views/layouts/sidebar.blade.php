@@ -15,12 +15,12 @@
             <div class="profile-desc">
                 <div class="profile-pic">
                     <div class="count-indicator">
-                        <img class="img-xs rounded-circle " src="/pp/{{$foto}}" alt="">
+                        <img class="img-xs rounded-circle " src="/pp/{{ auth()->user()->profile_photo_path }}" alt="">
                         <span class="count bg-success"></span>
                     </div>
                     <div class="profile-name">
-                        <h5 class="mb-0 font-weight-normal">{{$data2}}</h5>
-                        <span>User</span>
+                        <h5 class="mb-0 font-weight-normal">{{ auth()->user()->name }}</h5>
+                        <span>{{ auth()->user()->role->name }}</span>
                     </div>
                 </div>
             </div>
@@ -30,127 +30,127 @@
         </li>
 
 
-        @if($usertype =='1')
+        @can("member")
 
-        <li class="nav-item menu-items">
-            <a class="nav-link linkclass disabled" href="{{url('/adminiuran')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-map"></i>
-                </span>
-                <span class="menu-title">Schedule</span>
-            </a>
-        </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link linkclass disabled" href="{{url('/adminiuran')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-map"></i>
+                    </span>
+                    <span class="menu-title">Schedule</span>
+                </a>
+            </li>
 
-        <li class="nav-item menu-items">
-            <a class="nav-link linkclass disabled" href="{{url('/adminjl')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-map"></i>
-                </span>
-                <span class="menu-title">Assesment</span>
-            </a>
-        </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link linkclass disabled" href="{{url('/adminjl')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-map"></i>
+                    </span>
+                    <span class="menu-title">Assesment</span>
+                </a>
+            </li>
 
-        <li class="nav-item menu-items">
-            <a class="nav-link linkclass disabled" href="{{url('/ukur')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-map"></i>
-                </span>
-                <span class="menu-title">Body Measurement</span>
-            </a>
-        </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link linkclass disabled" href="{{url('/ukur')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-map"></i>
+                    </span>
+                    <span class="menu-title">Body Measurement</span>
+                </a>
+            </li>
 
-        <li class="nav-item menu-items">
-            <a class="nav-link " href="{{url('/fitt')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-map"></i>
-                </span>
-                <span class="menu-title">Body Mess Index</span>
-            </a>
-        </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link " href="{{url('/fitt')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-map"></i>
+                    </span>
+                    <span class="menu-title">Body Mess Index</span>
+                </a>
+            </li>
 
-        <li class="nav-item menu-items">
-            <a class="nav-link linkclass disabled" href="{{url('/absen')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-table"></i>
-                </span>
-                <span class="menu-title">Absensi</span>
-            </a>
-        </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link linkclass disabled" href="{{url('/absen')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-table"></i>
+                    </span>
+                    <span class="menu-title">Absensi</span>
+                </a>
+            </li>
 
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('/member')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-crown"></i>
-                </span>
-                <span class="menu-title">Membership</span>
-            </a>
-        </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="{{url('/member')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-crown"></i>
+                    </span>
+                    <span class="menu-title">Membership</span>
+                </a>
+            </li>
 
-        @else
+        @endcan
+        @can('trainer')
+            <li class="nav-item menu-items @if (request()->routeIs('trainer.jadwal')) active @endif" >
+                <a class="nav-link" href="{{route('trainer.jadwal')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-map"></i>
+                    </span>
+                    <span class="menu-title">Jadwal</span>
+                </a>
+            </li>
 
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('/adminiuran')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-map"></i>
-                </span>
-                <span class="menu-title">Schedule</span>
-            </a>
-        </li>
+            <li class="nav-item menu-items @if (request()->routeIs('trainer.absensi')) active @endif">
+                <a class="nav-link " href="{{route('trainer.absensi')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-table"></i>
+                    </span>
+                    <span class="menu-title">Absensi</span>
+                </a>
+            </li>
 
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('/adminjl')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-map"></i>
-                </span>
-                <span class="menu-title">Assesment</span>
-            </a>
-        </li>
+            <li class="nav-item menu-items @if (request()->routeIs('trainer.assessment')) active @endif">
+                <a class="nav-link" href="{{route('trainer.assessment')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-map"></i>
+                    </span>
+                    <span class="menu-title">Assessment</span>
+                </a>
+            </li>
 
-        <li class="nav-item menu-items">
-            <a class="nav-link " href="{{url('/ukur')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-map"></i>
-                </span>
-                <span class="menu-title">Body Measurement</span>
-            </a>
-        </li>
+            <li class="nav-item menu-items @if (request()->routeIs('trainer.program-latihan')) active @endif">
+                <a class="nav-link" href="{{route('trainer.program-latihan')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-map"></i>
+                    </span>
+                    <span class="menu-title">Program Latihan</span>
+                </a>
+            </li>
 
-        <li class="nav-item menu-items">
-            <a class="nav-link " href="{{url('/fitt')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-map"></i>
-                </span>
-                <span class="menu-title">Body Mess Index</span>
-            </a>
-        </li>
+            <li class="nav-item menu-items @if (request()->routeIs('trainer.member')) active @endif">
+                <a class="nav-link" href="{{route('trainer.member')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-crown"></i>
+                    </span>
+                    <span class="menu-title">Data Member</span>
+                </a>
+            </li>
 
-        <li class="nav-item menu-items">
-            <a class="nav-link " href="{{url('/absen')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-table"></i>
-                </span>
-                <span class="menu-title">Absensi</span>
-            </a>
-        </li>
+            <li class="nav-item menu-items @if (request()->routeIs('trainer.body-measurement')) active @endif">
+                <a class="nav-link " href="{{route('trainer.body-measurement')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-map"></i>
+                    </span>
+                    <span class="menu-title">Body Measurement</span>
+                </a>
+            </li>
 
-        <li class="nav-item menu-items">
-            <a class="nav-link " href="{{url('/trainer')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-human"></i>
-                </span>
-                <span class="menu-title">Personal Trainer</span>
-            </a>
-        </li>
-
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('/member')}}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-crown"></i>
-                </span>
-                <span class="menu-title">Membership</span>
-            </a>
-        </li>
-        @endif
+            <li class="nav-item menu-items @if (request()->routeIs('trainer.body-mass-index')) active @endif">
+                <a class="nav-link " href="{{route('trainer.body-mass-index')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-map"></i>
+                    </span>
+                    <span class="menu-title">Body Mass Index</span>
+                </a>
+            </li>
+        @endcan
 
 
 

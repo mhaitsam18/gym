@@ -61,7 +61,7 @@
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                             <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                <img class="h-8 w-8 rounded-full object-cover" src="/{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                             </button>
                             @else
                             <span class="inline-flex rounded-md">
@@ -82,7 +82,7 @@
                                 {{ __('Manage Account') }}
                             </div>
 
-                            <x-jet-dropdown-link href="{{url('/editprofile')}}">
+                            <x-jet-dropdown-link href="{{route('user.profile.show')}}" :active="request()->routeIs('user.profile.show')">
                                 {{ __('Profile') }}
 
                             </x-jet-dropdown-link>
@@ -133,7 +133,7 @@
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                 <div class="flex-shrink-0 mr-3">
-                    <img class="h-10 w-10 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                    <img class="h-10 w-10 rounded-full object-cover" src="/{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                 </div>
                 @endif
 
@@ -145,7 +145,7 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
-                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                <x-jet-responsive-nav-link href="{{ route('user.profile.show') }}" :active="request()->routeIs('user.profile.show')">
                     {{ __('Profile') }}
                 </x-jet-responsive-nav-link>
 
