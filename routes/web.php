@@ -46,27 +46,29 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+
 Route::middleware(['auth:web'])->group(function () {
 
     Route::get("/redirects", [HomeController::class, "redirects"]);
     Route::get("/users", [AdminController::class, "user"]);
     Route::get('/editprofile', [UserController::class, 'editprofile'])->name('user.profile.show');
 
+
     Route::middleware(['auth.member'])->group(function () {
-        Route::get('event', [AdminController::class, 'index']);
-        Route::get('ukur', [AdminController::class, 'ukur']);
-        Route::get('member', [AdminController::class, 'member']);
-        // Route::get('trainer', [AdminController::class, 'trainer']);
-        Route::get('fitt', [AdminController::class, 'fitt']);
+        Route::get('/event', [AdminController::class, 'index']);
+        Route::get('/ukur', [AdminController::class, 'ukur']);
+        Route::get('/member', [AdminController::class, 'member']);
+        Route::get('/personal-trainer', [AdminController::class, 'trainer']);
+        Route::get('/fitt', [AdminController::class, 'fitt']);
 
         Route::post('/uploadtrainer1/{id}', [AdminController::class, 'uploadtrainer1']);
         Route::post('/uploadtrainer2/{id}', [AdminController::class, 'uploadtrainer2']);
         Route::post('/uploadtrainer3/{id}', [AdminController::class, 'uploadtrainer3']);
 
-        Route::get('back', [AdminController::class, 'back']);
+        Route::get('/back', [AdminController::class, 'back']);
 
 
-        Route::get('nambah_assessment', [AdminController::class, 'assessment']);
+        Route::get('/nambah_assessment', [AdminController::class, 'assessment']);
 
         Route::get('/adminjl', [AdminController::class, 'viewadminjl']);
 
@@ -120,7 +122,7 @@ Route::middleware(['auth:web'])->group(function () {
     });
 });
 
-Route::post('eventAjax', [AdminController::class, 'ajax']);
+Route::post('/eventAjax', [AdminController::class, 'ajax']);
 
 
 Route::post('/uploadukur', [AdminController::class, 'uploadukur']);

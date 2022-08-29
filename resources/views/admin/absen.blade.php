@@ -50,7 +50,7 @@
 <body>
 
 
-  @include('layouts.navbar')
+  @include('admin.navbar')
   {{--
     @include('admin.adminnavtop') --}}
   {{-- @include('admin.adminnavtop') --}}

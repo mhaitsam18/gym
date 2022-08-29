@@ -134,7 +134,7 @@
       </li>
 
       <li class="nav-item menu-items">
-        <a class="nav-link " href="{{url('/trainer')}}">
+        <a class="nav-link " href="{{url('/personal-trainer')}}">
           <span class="menu-icon">
             <i class="mdi mdi-human"></i>
           </span>
