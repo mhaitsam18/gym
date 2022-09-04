@@ -372,11 +372,15 @@ class AdminController extends Controller
     $data_trainer = Trainer::all();
     $expired_at = date('Y-m-d H:i:s', strtotime('+1 month', strtotime(date('Y-m-d H:i:s'))));
 
+    $langganan = Langganan::where('member_id', $id)
+      ->where('expired_at', '>', date('Y-m-d H:i:s'))
+      ->latest()
+      ->first();
     $trainee = Trainee::where('member_id', $id)
       ->where('expired_at', '>', date('Y-m-d H:i:s'))
       ->latest()
       ->first();
-    return view('admin.trainer', compact('usertype', 'data2', 'data', 'foto', 'data_trainer', 'expired_at', 'trainee'));
+    return view('admin.trainer', compact('usertype', 'data2', 'data', 'foto', 'data_trainer', 'expired_at', 'trainee', 'langganan'));
   }
 
   public function uploadmember1(Request $request, $id)

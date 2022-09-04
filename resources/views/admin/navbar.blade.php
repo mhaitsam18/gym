@@ -33,7 +33,7 @@
       @if($usertype =='1')
 
       <li class="nav-item menu-items">
-        <a class="nav-link linkclass disabled" href="{{url('/adminiuran')}}">
+        <a class="nav-link linkclass disabled" href="{{url('/member/trainee/jadwal')}}">
           <span class="menu-icon">
             <i class="mdi mdi-map"></i>
           </span>
@@ -89,7 +89,7 @@
       @else
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('/adminiuran')}}">
+        <a class="nav-link" href="{{url('/member/trainee/jadwal')}}">
           <span class="menu-icon">
             <i class="mdi mdi-map"></i>
           </span>

@@ -20,4 +20,8 @@ class Trainee extends Model
     {
         return $this->belongsTo(Trainer::class, 'trainer_id');
     }
+    public function jadwal()
+    {
+        return $this->hasMany(Jadwal::class);
+    }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jadwal;
 use App\Models\Trainee;
+use App\Models\Trainer;
 use Illuminate\Http\Request;
 
 class MemberTraineeController extends Controller
@@ -100,8 +102,21 @@ class MemberTraineeController extends Controller
         return back();
     }
 
-    public function jadwal()
-    {
-        return view('member.trainee.jadwal', compact("data", "date", "usertype", "user_id", "data2", 'foto'));
-    }
+    // public function jadwal()
+    // {
+    //     $title = "Jadwal Trainee";
+    //     $id = auth()->user()->id;
+    //     $trainee = Trainee::where('member_id', $id)
+    //         ->where('expired_at', '>', date('Y-m-d H:i:s'))
+    //         ->oldest()
+    //         ->first();
+    //     $data_jadwal = Jadwal::where('trainee_id', $trainee->id)
+    //         ->get();
+
+    //     $data_jadwal_trainer =
+    //         Jadwal::where('trainer_id', $trainee->trainer_id)
+    //         ->where('tanggal', '>', date('Y-m-d'))
+    //         ->get();
+    //     return view('member.trainee.jadwal', compact("title", "trainee", "data_jadwal", "data_jadwal_trainer"));
+    // }
 }

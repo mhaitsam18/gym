@@ -10,7 +10,7 @@ class Waktu extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $table = 'trainer';
+    protected $table = 'waktu';
     protected $guarded = ['id'];
 
     public function jadwal()

@@ -10,9 +10,13 @@ class Jadwal extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $jadwal = 'jadwal';
+    protected $table = 'jadwal';
     protected $guarded = ['id'];
 
+    public function trainee()
+    {
+        return $this->belongsTo(Trainee::class, 'trainee_id');
+    }
     public function member()
     {
         return $this->belongsTo(User::class, 'member_id');

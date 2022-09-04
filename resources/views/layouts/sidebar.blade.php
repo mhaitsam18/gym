@@ -33,7 +33,7 @@
         @can("member")
 
             <li class="nav-item menu-items">
-                <a class="nav-link linkclass disabled" href="{{url('/adminiuran')}}">
+                <a class="nav-link linkclass" href="{{url('/member/trainee/jadwal')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-map"></i>
                     </span>
@@ -42,7 +42,7 @@
             </li>
 
             <li class="nav-item menu-items">
-                <a class="nav-link linkclass disabled" href="{{url('/adminjl')}}">
+                <a class="nav-link linkclass" href="{{url('/adminjl')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-map"></i>
                     </span>
@@ -51,7 +51,7 @@
             </li>
 
             <li class="nav-item menu-items">
-                <a class="nav-link linkclass disabled" href="{{url('/ukur')}}">
+                <a class="nav-link linkclass" href="{{url('/ukur')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-map"></i>
                     </span>
@@ -76,7 +76,14 @@
                     <span class="menu-title">Absensi</span>
                 </a>
             </li>
-
+            <li class="nav-item menu-items">
+                <a class="nav-link " href="{{url('/personal-trainer')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-human"></i>
+                    </span>
+                    <span class="menu-title">Personal Trainer</span>
+                </a>
+            </li>
             <li class="nav-item menu-items">
                 <a class="nav-link" href="{{url('/member')}}">
                     <span class="menu-icon">
@@ -85,6 +92,7 @@
                     <span class="menu-title">Membership</span>
                 </a>
             </li>
+
 
         @endcan
         @can('trainer')
