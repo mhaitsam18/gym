@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2022 at 04:41 PM
+-- Generation Time: Sep 05, 2022 at 12:37 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -118,6 +118,36 @@ CREATE TABLE `carts` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `catatan_latihan`
+--
+
+CREATE TABLE `catatan_latihan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `jadwal_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `program_latihan_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `tinggi_badan` double(5,2) DEFAULT NULL,
+  `berat_badan` double(5,2) DEFAULT NULL,
+  `dada` double(5,2) DEFAULT NULL,
+  `pinggang` double(5,2) DEFAULT NULL,
+  `pinggul_atas` double(5,2) DEFAULT NULL,
+  `pinggul_bawah` double(5,2) DEFAULT NULL,
+  `body_measurement` varchar(255) DEFAULT NULL,
+  `body_mass_index` varchar(255) DEFAULT NULL,
+  `catatan` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `catatan_latihan`
+--
+
+INSERT INTO `catatan_latihan` (`id`, `jadwal_id`, `program_latihan_id`, `tinggi_badan`, `berat_badan`, `dada`, `pinggang`, `pinggul_atas`, `pinggul_bawah`, `body_measurement`, `body_mass_index`, `catatan`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 170.00, 65.00, 11.00, 7.00, 9.00, 10.00, 'Hourglass', 'Normal', 'Mantep', '2022-09-04 13:36:39', '2022-09-04 13:36:39');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `chefs`
 --
 
@@ -130,6 +160,30 @@ CREATE TABLE `chefs` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `nohp_c` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `detail_program_latihan`
+--
+
+CREATE TABLE `detail_program_latihan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `program_latihan_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `nama` varchar(255) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `detail_program_latihan`
+--
+
+INSERT INTO `detail_program_latihan` (`id`, `program_latihan_id`, `nama`, `jumlah`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 'Push Up', 10, '2022-09-04 12:39:42', '2022-09-04 12:46:17', NULL),
+(2, 1, 'Sit Up', 30, '2022-09-04 12:40:49', '2022-09-04 12:40:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -251,7 +305,7 @@ CREATE TABLE `jadwal` (
 
 INSERT INTO `jadwal` (`id`, `trainee_id`, `member_id`, `trainer_id`, `tanggal`, `waktu_id`, `accepted_at`, `rejected_at`, `is_saran`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 1, 8, 2, '2022-09-05', 3, '2022-09-04 13:25:07', NULL, 0, '2022-09-04 05:15:06', '2022-09-04 05:15:06', NULL),
-(2, 2, 8, 2, '2022-09-06', 2, NULL, NULL, 0, '2022-09-04 07:33:43', '2022-09-04 07:33:43', NULL);
+(2, 1, 8, 2, '2022-09-06', 5, '2022-09-04 09:10:45', NULL, 1, '2022-09-04 07:33:43', '2022-09-04 09:10:45', NULL);
 
 -- --------------------------------------------------------
 
@@ -275,7 +329,7 @@ CREATE TABLE `langganan` (
 --
 
 INSERT INTO `langganan` (`id`, `member_id`, `paket_id`, `expired_at`, `is_subscribe`, `is_paid`, `created_at`, `updated_at`) VALUES
-(9, 8, 1, '2022-09-06 07:26:46', 0, 'bukti-transfer/zkclIHKZzVrRhlBzWTNYWZVqBxSclfDWNMVTFdWT.jpg', '2022-08-06 07:27:02', '2022-09-04 07:29:46');
+(1, 8, 1, '2022-09-06 07:26:46', 0, 'bukti-transfer/zkclIHKZzVrRhlBzWTNYWZVqBxSclfDWNMVTFdWT.jpg', '2022-08-06 07:27:02', '2022-09-04 07:29:46');
 
 -- --------------------------------------------------------
 
@@ -441,6 +495,55 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `presensi`
+--
+
+CREATE TABLE `presensi` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `jadwal_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `user_trainer_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `user_member_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `is_trainer_present` tinyint(1) DEFAULT NULL,
+  `is_member_present` tinyint(1) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `deleted_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `presensi`
+--
+
+INSERT INTO `presensi` (`id`, `jadwal_id`, `user_trainer_id`, `user_member_id`, `is_trainer_present`, `is_member_present`, `created_at`, `deleted_at`) VALUES
+(1, 1, 29, 8, NULL, NULL, '2022-09-04 16:35:56', '2022-09-04 16:35:56'),
+(2, 2, 29, 8, NULL, NULL, '2022-09-04 16:35:56', '2022-09-04 16:35:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `program_latihan`
+--
+
+CREATE TABLE `program_latihan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `trainer_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `nama` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `program_latihan`
+--
+
+INSERT INTO `program_latihan` (`id`, `trainer_id`, `nama`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 2, 'Otot Dada', '2022-09-04 18:34:59', '2022-09-04 18:34:59', NULL),
+(2, 2, 'Mengecilkan Paha', '2022-09-04 18:34:59', '2022-09-04 18:34:59', NULL),
+(3, 2, 'Otot Pinggang', '2022-09-04 12:10:23', '2022-09-04 12:15:25', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `reservations`
 --
 
@@ -573,7 +676,7 @@ CREATE TABLE `trainee` (
 --
 
 INSERT INTO `trainee` (`id`, `member_id`, `trainer_id`, `expired_at`, `is_subscribe`, `is_paid`, `created_at`, `updated_at`) VALUES
-(2, 8, 2, '2022-10-04 07:31:16', 1, 'bukti-transfer/XmNUYjX9fdyJ3eDQBGyfFAu8lPGjHeA2atItGK58.jpg', '2022-09-04 07:31:49', '2022-09-04 07:31:49');
+(1, 8, 2, '2022-09-06 07:31:16', 1, 'bukti-transfer/XmNUYjX9fdyJ3eDQBGyfFAu8lPGjHeA2atItGK58.jpg', '2022-08-06 07:31:49', '2022-08-06 15:39:52');
 
 -- --------------------------------------------------------
 
@@ -752,9 +855,21 @@ ALTER TABLE `carts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `catatan_latihan`
+--
+ALTER TABLE `catatan_latihan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `chefs`
 --
 ALTER TABLE `chefs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `detail_program_latihan`
+--
+ALTER TABLE `detail_program_latihan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -827,6 +942,18 @@ ALTER TABLE `paket`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `presensi`
+--
+ALTER TABLE `presensi`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `program_latihan`
+--
+ALTER TABLE `program_latihan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -881,6 +1008,18 @@ ALTER TABLE `bodyfitts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `catatan_latihan`
+--
+ALTER TABLE `catatan_latihan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `detail_program_latihan`
+--
+ALTER TABLE `detail_program_latihan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
@@ -890,13 +1029,25 @@ ALTER TABLE `jadwal`
 -- AUTO_INCREMENT for table `langganan`
 --
 ALTER TABLE `langganan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `paket`
 --
 ALTER TABLE `paket`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `presensi`
+--
+ALTER TABLE `presensi`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `program_latihan`
+--
+ALTER TABLE `program_latihan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -914,7 +1065,7 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `trainee`
 --
 ALTER TABLE `trainee`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `trainer`
