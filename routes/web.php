@@ -116,6 +116,7 @@ Route::middleware(['auth:web'])->group(function () {
             });
             Route::prefix('member')->group(function () {
                 Route::get('/', [TrainerMemberController::class, 'index'])->name("trainer.member");
+                Route::get('/trainee', [TrainerMemberController::class, 'trainee'])->name("trainer.member.trainee");
             });
             Route::prefix('body-measurement')->group(function () {
                 Route::get('/', [TrainerBodyMeasurementController::class, 'index'])->name("trainer.body-measurement");

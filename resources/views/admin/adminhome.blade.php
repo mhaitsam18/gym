@@ -63,6 +63,7 @@
       dots[slideIndex - 1].className += " w3-opacity-off";
     }
   </script>
+  @include('admin.adminscript')
 
 
 
@@ -717,7 +718,6 @@
 
   <!-- container-scroller -->
   <!-- plugins:js -->
-  @include('admin.adminscript')
   <!-- End custom js for this page -->
 </body>
 

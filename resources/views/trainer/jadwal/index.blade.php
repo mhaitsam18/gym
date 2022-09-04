@@ -5,6 +5,18 @@
         <div class="card">
             <div class="card-body">
                 <h2>{{ $title }}</h2>
+                <table class="table table-striped" id="myTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Nama Trainee</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Mulai</th>
+                            <th scope="col">Selesai</th>
+                            <th scope="col">Konfirmasi</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>

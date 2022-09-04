@@ -1,3 +1,28 @@
+{{-- <script>
+function currentDiv(n) {
+    showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("demo");
+    if (n > x.length) {
+    slideIndex = 1
+    }
+    if (n < 1) {
+    slideIndex = x.length
+    }
+    for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+    }
+    x[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " w3-opacity-off";
+}
+</script> --}}
 <script src="/admin/assets/vendors/js/vendor.bundle.base.js"></script>
 <script src="/admin/assets/vendors/chart.js/Chart.min.js"></script>
 <script src="/admin/assets/vendors/progressbar.js/progressbar.min.js"></script>
@@ -20,8 +45,5 @@
 <script>
     $(document).ready(function() {
         $('#myTable').DataTable();
-    });
-    $(document).ready(function() {
-        $('#myTable2').DataTable();
     });
 </script>

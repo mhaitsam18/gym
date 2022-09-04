@@ -132,12 +132,12 @@
                 </a>
             </li>
 
-            <li class="nav-item menu-items @if (request()->routeIs('trainer.member')) active @endif">
-                <a class="nav-link" href="{{route('trainer.member')}}">
+            <li class="nav-item menu-items @if (request()->routeIs('trainer.member.trainee')) active @endif">
+                <a class="nav-link" href="{{route('trainer.member.trainee')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-crown"></i>
                     </span>
-                    <span class="menu-title">Data Member</span>
+                    <span class="menu-title">Data Trainee</span>
                 </a>
             </li>
 
