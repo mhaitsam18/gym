@@ -29,4 +29,9 @@ class Jadwal extends Model
     {
         return $this->belongsTo(Waktu::class, 'waktu_id');
     }
+
+    public function catatanLatihan()
+    {
+        return $this->hasOne(CatatanLatihan::class);
+    }
 }

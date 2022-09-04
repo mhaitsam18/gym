@@ -4,16 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class DetailProgramLatihan extends Model
+class CatatanLatihan extends Model
 {
     use HasFactory;
-    use SoftDeletes;
-    protected $table = 'detail_program_latihan';
+    protected $table = 'catatan_latihan';
     protected $guarded = ['id'];
-    protected $with = ['programLatihan'];
+    protected $with = ['jadwal', 'programLatihan'];
 
+    public function jadwal()
+    {
+        return $this->belongsTo(Jadwal::class, 'jadwal_id');
+    }
     public function programLatihan()
     {
         return $this->belongsTo(ProgramLatihan::class, 'program_latihan_id');
