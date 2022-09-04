@@ -132,4 +132,11 @@ class MemberJadwalController extends Controller
         Jadwal::find($jadwal->id)->update(['rejected_at' => date('Y-m-d H:i:s')]);
         return back()->with("success", "Jadwal ditolak");
     }
+
+    public function histori()
+    {
+        $title = 'Histori Latihan';
+        $data_histori = Presensi::where('user_member_id', auth()->user()->id)->get();
+        return view('member.histori.index', compact('title', 'data_histori'));
+    }
 }

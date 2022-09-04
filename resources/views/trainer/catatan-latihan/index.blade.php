@@ -53,10 +53,12 @@ use Illuminate\Support\Carbon;
                     </li>
                     <li><h4>Tinggi Badan : {{ $catatan_latihan->tinggi_badan }} cm</h4></li>
                     <li><h4>Berat Badan : {{ $catatan_latihan->berat_badan }} cm</h4></li>
+                    <li><h4>Body Mass Index : {{ $catatan_latihan->body_mass_index }}</h4></li>
                     <li><h4>Ukuran Dada : {{ $catatan_latihan->dada }} inci</h4></li>
                     <li><h4>Ukuran Pinggang : {{ $catatan_latihan->pinggang }} inci</h4></li>
                     <li><h4>Ukuran Pinggul Atas : {{ $catatan_latihan->pinggul_atas }} inci</h4></li>
                     <li><h4>Ukuran Pinggul Bawah : {{ $catatan_latihan->pinggul_bawah }} inci</h4></li>
+                    <li><h4>Body Measurement : {{ $catatan_latihan->body_measurement }}</h4></li>
                     <li><h4>Catatan : {{ $catatan_latihan->catatan }}</h4></li>
                 </ul>
             </div>

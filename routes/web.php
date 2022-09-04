@@ -63,6 +63,7 @@ Route::middleware(['auth:web'])->group(function () {
         Route::get('/event', [AdminController::class, 'index']);
         Route::get('/ukur', [AdminController::class, 'ukur']);
         Route::get('/member', [AdminController::class, 'member']);
+        Route::get('/member/histori', [MemberJadwalController::class, 'histori']);
         Route::get('/personal-trainer', [AdminController::class, 'trainer']);
         Route::get('/fitt', [AdminController::class, 'fitt']);
 

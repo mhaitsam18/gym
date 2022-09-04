@@ -38,6 +38,14 @@
                     <span class="menu-title">Schedule</span>
                 </a>
             </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link linkclass" href="{{url('/member/histori')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-clock"></i>
+                    </span>
+                    <span class="menu-title">Histori</span>
+                </a>
+            </li>
 
             <li class="nav-item menu-items">
                 <a class="nav-link linkclass" href="{{url('/adminjl')}}">

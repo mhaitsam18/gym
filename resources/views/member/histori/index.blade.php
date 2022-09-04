@@ -23,6 +23,7 @@ use Illuminate\Support\Carbon;
                         <thead>
                             <tr>
                                 <th scope="col">No.</th>
+                                <th scope="col">Nama Trainer</th>
                                 <th scope="col">Tanggal</th>
                                 <th scope="col">Waktu</th>
                                 <th scope="col">Aksi</th>
@@ -32,6 +33,7 @@ use Illuminate\Support\Carbon;
                             @foreach ($data_histori as $histori)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
+                                <td>{{ $histori->trainer->name }}</td>
                                 
                                 <td>{{ Carbon::parse($histori->jadwal->tanggal)->translatedFormat('j F Y') }}</td>
                                 <td>{{ $histori->jadwal->waktu->waktu_mulai }} - {{ $histori->jadwal->waktu->waktu_selesai }}</td>
