@@ -17,6 +17,7 @@ use App\Http\Controllers\TrainerAssessmentController;
 use App\Http\Controllers\TrainerBodyMassIndexController;
 use App\Http\Controllers\TrainerBodyMeasurementController;
 use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\TrainerDetailProgramLatihanController;
 use App\Http\Controllers\TrainerJadwalController;
 use App\Http\Controllers\TrainerMemberController;
 use App\Http\Controllers\TrainerPresensiController;
@@ -122,6 +123,8 @@ Route::middleware(['auth:web'])->group(function () {
             Route::prefix('program-latihan')->group(function () {
                 Route::get('/', [TrainerProgramLatihanController::class, 'index'])->name("trainer.program-latihan");
             });
+
+            Route::resource('/detail-program-latihan', TrainerDetailProgramLatihanController::class);
             Route::prefix('assessment')->group(function () {
                 Route::get('/', [TrainerAssessmentController::class, 'index'])->name("trainer.assessment");
             });
