@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jadwal;
+use App\Models\Presensi;
 use App\Models\Trainee;
 use App\Models\Trainer;
 use Illuminate\Http\Request;
@@ -26,6 +27,11 @@ class TrainerJadwalController extends Controller
     public function terima(Jadwal $jadwal)
     {
         Jadwal::find($jadwal->id)->update(['accepted_at' => date('Y-m-d H:i:s')]);
+        Presensi::create([
+            'jadwal_id' => $jadwal->id,
+            'user_trainer_id' => auth()->user()->id,
+            'user_member_id' => $jadwal->member_id
+        ]);
         return back()->with("Jadwal diterima");
     }
     public function tolak(Jadwal $jadwal)

@@ -1,5 +1,8 @@
 @extends('layouts.main')
 @section('content')
+@php
+use Illuminate\Support\Carbon;
+@endphp
 <div class="row ">
     <div class="col-12 grid-margin">
         <div class="card">
@@ -21,7 +24,7 @@
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $jadwal->member->name }}</td>
-                                <td>{{ $jadwal->tanggal }}</td>
+                                <td>{{ Carbon::parse($jadwal->tanggal)->translatedFormat('j F Y') }}</td>
                                 <td>{{ $jadwal->waktu->waktu_mulai }}</td>
                                 <td>{{ $jadwal->waktu->waktu_selesai }}</td>
                                 <td>

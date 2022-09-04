@@ -19,6 +19,7 @@ use App\Http\Controllers\TrainerBodyMeasurementController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\TrainerJadwalController;
 use App\Http\Controllers\TrainerMemberController;
+use App\Http\Controllers\TrainerPresensiController;
 use App\Http\Controllers\TrainerProgramLatihanController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\MapLocation;
@@ -94,8 +95,8 @@ Route::middleware(['auth:web'])->group(function () {
 
         Route::get('/member/trainee/berhenti-berlanggan/{trainee}', [MemberTraineeController::class, 'berhentiBerlanggan']);
         // Route::get('/member/trainee/jadwal', [MemberTraineeController::class, 'jadwal']);
-        Route::get('/member/trainee/jadwal/terima/{jadwal}', [TrainerJadwalController::class, 'terima']);
-        Route::get('/member/trainee/jadwal/tolak/{jadwal}', [TrainerJadwalController::class, 'tolak']);
+        Route::get('/member/trainee/jadwal/terima/{jadwal}', [MemberJadwalController::class, 'terima']);
+        Route::get('/member/trainee/jadwal/tolak/{jadwal}', [MemberJadwalController::class, 'tolak']);
         Route::resource('/member/trainee/jadwal', MemberJadwalController::class);
         Route::resource('/member/trainee', MemberTraineeController::class);
     });
@@ -113,6 +114,9 @@ Route::middleware(['auth:web'])->group(function () {
             });
             Route::prefix('absensi')->group(function () {
                 Route::get('/', [TrainerAbsensiController::class, 'index'])->name("trainer.absensi");
+            });
+            Route::prefix('presensi')->group(function () {
+                Route::get('/', [TrainerPresensiController::class, 'index'])->name("trainer.presensi");
             });
             Route::prefix('program-latihan')->group(function () {
                 Route::get('/', [TrainerProgramLatihanController::class, 'index'])->name("trainer.program-latihan");
