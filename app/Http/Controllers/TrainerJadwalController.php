@@ -32,12 +32,12 @@ class TrainerJadwalController extends Controller
             'user_trainer_id' => auth()->user()->id,
             'user_member_id' => $jadwal->member_id
         ]);
-        return back()->with("Jadwal diterima");
+        return back()->with("success", "Jadwal diterima");
     }
     public function tolak(Jadwal $jadwal)
     {
         Jadwal::find($jadwal->id)->update(['rejected_at' => date('Y-m-d H:i:s')]);
-        return back()->with("Jadwal ditolak");
+        return back()->with("success", "Jadwal ditolak");
     }
 
     public function saranJadwal(Request $request, Jadwal $jadwal)
@@ -55,7 +55,7 @@ class TrainerJadwalController extends Controller
                 'waktu_id' => $request->waktu_id,
                 'is_saran' => 1
             ]);
-            return back()->with("Saran Jadwal Terkirim");
+            return back()->with("success", "Saran Jadwal Terkirim");
         }
     }
 }

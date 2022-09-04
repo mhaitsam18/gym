@@ -125,11 +125,11 @@ class MemberJadwalController extends Controller
             'user_trainer_id' => $jadwal->trainer->user_id,
             'user_member_id' => $jadwal->member_id
         ]);
-        return back()->with("Jadwal diterima");
+        return back()->with("success", "Jadwal diterima");
     }
     public function tolak(Jadwal $jadwal)
     {
         Jadwal::find($jadwal->id)->update(['rejected_at' => date('Y-m-d H:i:s')]);
-        return back()->with("Jadwal ditolak");
+        return back()->with("success", "Jadwal ditolak");
     }
 }
