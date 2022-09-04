@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2022 at 02:00 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Generation Time: Sep 04, 2022 at 04:41 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -227,6 +227,59 @@ CREATE TABLE `iurans` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jadwal`
+--
+
+CREATE TABLE `jadwal` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `trainee_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `member_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `trainer_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `tanggal` date DEFAULT NULL,
+  `waktu_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `accepted_at` timestamp NULL DEFAULT NULL,
+  `rejected_at` timestamp NULL DEFAULT NULL,
+  `is_saran` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jadwal`
+--
+
+INSERT INTO `jadwal` (`id`, `trainee_id`, `member_id`, `trainer_id`, `tanggal`, `waktu_id`, `accepted_at`, `rejected_at`, `is_saran`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 8, 2, '2022-09-05', 3, '2022-09-04 13:25:07', NULL, 0, '2022-09-04 05:15:06', '2022-09-04 05:15:06', NULL),
+(2, 2, 8, 2, '2022-09-06', 2, NULL, NULL, 0, '2022-09-04 07:33:43', '2022-09-04 07:33:43', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `langganan`
+--
+
+CREATE TABLE `langganan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `member_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `paket_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `expired_at` timestamp NULL DEFAULT NULL,
+  `is_subscribe` tinyint(1) DEFAULT 0,
+  `is_paid` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `langganan`
+--
+
+INSERT INTO `langganan` (`id`, `member_id`, `paket_id`, `expired_at`, `is_subscribe`, `is_paid`, `created_at`, `updated_at`) VALUES
+(9, 8, 1, '2022-09-06 07:26:46', 0, 'bukti-transfer/zkclIHKZzVrRhlBzWTNYWZVqBxSclfDWNMVTFdWT.jpg', '2022-08-06 07:27:02', '2022-09-04 07:29:46');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `latihans`
 --
 
@@ -330,6 +383,30 @@ CREATE TABLE `orders` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `paket`
+--
+
+CREATE TABLE `paket` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `keterangan` text NOT NULL,
+  `harga` float(16,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `paket`
+--
+
+INSERT INTO `paket` (`id`, `nama`, `keterangan`, `harga`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'MY FIT', 'Paket Gym sehat setiap hari, membuat Tubuh Anda menjadi lebih kuat', 500000.00, '2022-09-04 05:00:23', '2022-09-04 05:00:23', NULL),
+(2, 'UNLIMITED', 'Gratis setiap hari, dan dapatkan 1 Susu kuat setiap hari', 800000.00, '2022-09-04 05:00:23', '2022-09-04 05:00:23', NULL);
 
 -- --------------------------------------------------------
 
@@ -477,6 +554,55 @@ CREATE TABLE `tests` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `trainee`
+--
+
+CREATE TABLE `trainee` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `member_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `trainer_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `expired_at` timestamp NULL DEFAULT NULL,
+  `is_subscribe` tinyint(1) DEFAULT 0,
+  `is_paid` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trainee`
+--
+
+INSERT INTO `trainee` (`id`, `member_id`, `trainer_id`, `expired_at`, `is_subscribe`, `is_paid`, `created_at`, `updated_at`) VALUES
+(2, 8, 2, '2022-10-04 07:31:16', 1, 'bukti-transfer/XmNUYjX9fdyJ3eDQBGyfFAu8lPGjHeA2atItGK58.jpg', '2022-09-04 07:31:49', '2022-09-04 07:31:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `trainer`
+--
+
+CREATE TABLE `trainer` (
+  `id` bigint(20) NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `keterangan` text DEFAULT NULL,
+  `harga` float(16,2) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `trainer`
+--
+
+INSERT INTO `trainer` (`id`, `user_id`, `keterangan`, `harga`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 28, '1. Kuat<br>\r\n2. Rajin<br>\r\n3. Hebat<br>', 100000.00, '2022-09-04 09:50:09', '2022-09-04 09:50:09', NULL),
+(2, 29, '1. Kuat<br>\r\n2. Rajin<br>\r\n3. Hebat<br>', 200000.00, '2022-09-04 09:50:09', '2022-09-04 09:50:09', NULL),
+(3, 30, '1. Kuat<br>\r\n2. Rajin<br>\r\n3. Hebat<br>', 8000000.00, '2022-09-04 09:50:09', '2022-09-04 09:50:09', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ukurs`
 --
 
@@ -555,7 +681,7 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `username`, `usertype`, `email`, `
 (5, 1, 'egan', '', '1', 'e@gmail.com', NULL, NULL, NULL, '$2y$10$skYn1qo0ehnRrr1n.AyHjuQN4BIFvX9rfCl2lIaGnuj1/kh5HrgDi', NULL, '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-04-22 11:35:20', '2022-04-22 11:35:20'),
 (6, 1, 'user1', '', '2', 'user@gmail.com', '2022-05-25 07:51:16', NULL, NULL, '$2y$10$sGn.DA.96xjEyTEZXD.7zuWRuO02itdhW/qrLD6Dxrl8Eofkix1qa', '1650873076.jpg', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-04-25 11:44:07', '2022-04-25 11:51:16'),
 (7, 1, 'tes', '', '2', 'tes@gmail.com', '2022-05-26 13:37:27', NULL, NULL, '$2y$10$0MtNMd4zOdq5LK63kqIGieOy6LTGVQhaFVUBTQJH3DXQYexnOUuMm', '1650980247.png', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-04-26 06:37:07', '2022-04-26 06:37:27'),
-(8, 1, 'srilindays', '', '2', 'sril@gmail.com', '2022-06-11 12:21:39', 'Juani Ft', NULL, '$2y$10$V5t7n0TPYwLJHu1n5r.65eE0cPZZB1e9rHxFemCVG0SyxviNSJFNy', '1652271699.png', '', '', '', '', NULL, NULL, NULL, NULL, '1658400585.jpeg', '2022-05-11 05:20:41', '2022-05-11 05:22:21'),
+(8, 1, 'srilindays', '', '2', 'sril@gmail.com', '2022-10-04 05:26:17', 'Juani Ft', NULL, '$2y$10$V5t7n0TPYwLJHu1n5r.65eE0cPZZB1e9rHxFemCVG0SyxviNSJFNy', '1662269177.jpg', '', '', '', '', NULL, NULL, NULL, NULL, '1658400585.jpeg', '2022-05-11 05:20:41', '2022-09-03 22:26:17'),
 (10, 1, 'user10', '', '2', '10@gmail.com', '2022-07-01 11:23:51', NULL, NULL, '$2y$10$lSspKqTHWLMquxyZPnmTU.T/JsC7E.znsAgA8iGwo91VygkEo8S/u', '1654082631.jpg', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '2022-06-01 03:23:32', '2022-06-01 04:23:51'),
 (12, 1, 'tester', 'aaaa', '2', 'tester@tester', '2022-08-21 07:05:26', NULL, NULL, '$2y$10$ktQg.JpVPUmcDV2VKUkFRukg5YAcc4K.WBrperWyl5c/mhEY.VMLm', '1658387126.jpg', 'Laki-Laki', '2022-07-21', 'aaaa', 'aaa', NULL, NULL, NULL, NULL, '1658400585.jpeg', '2022-07-20 23:49:33', '2022-07-21 03:49:45'),
 (22, 1, 'sria', NULL, '1', 'sria@gmail.com', NULL, NULL, NULL, '$2y$10$sSR8iDV7SlhIUC2vdNI97e/Gvo.ZijjdTQ3SV0t87Yu2wKaqovEMu', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-07-21 21:07:26', '2022-07-21 21:07:26'),
@@ -564,8 +690,36 @@ INSERT INTO `users` (`id`, `role_id`, `name`, `username`, `usertype`, `email`, `
 (25, 1, 'testing', NULL, '1', 'testing@gmail.com', NULL, NULL, NULL, '$2y$10$q2GB1Mx6LvYqbY0lTxWy1ef.dNYKHeXzFzjh0blYQXzfZt/U/qPdC', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-08-01 21:24:45', '2022-08-01 21:24:45'),
 (26, 1, 'riana', 'rianashinta', '2', 'riana@gmail.com', '2022-09-06 09:34:24', 'Juani Ft', NULL, '$2y$10$SGlJ9UdfwVZBIU8WgNE.7OBMCEoUBthF7/U0o4BMHRaU5UzBAr9Nm', '1659778464.jpg', 'Perempuan', '2022-08-17', 'Bandung', '08999101010', NULL, NULL, NULL, NULL, '1659778545.jpg', '2022-08-06 02:33:37', '2022-08-06 02:40:33'),
 (27, 1, 'ci', NULL, '1', 'ci@gmail.com', NULL, NULL, NULL, '$2y$10$QjrGD2PsDHt/vCTq5ZNBAOlB/sxN38zg02jyENxzKYYJ1eGt5yaEe', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-08-11 11:25:55', '2022-08-11 11:25:55'),
-(28, 1, 'tal', 'tal', '2', 'tal@gmail.com', '2022-09-11 18:54:00', NULL, NULL, '$2y$10$smxLeHyZZ8m5uCrrHasSX.bB6DJvpr0vU2uB82i8gzZHfPRjJIkaO', '1660244040.jpeg', 'Perempuan', '2022-08-02', 'tal', '1111111111', NULL, NULL, NULL, NULL, '1660243303.jpeg', '2022-08-11 11:29:19', '2022-08-11 11:54:00'),
-(29, 2, 'Abdiel', NULL, '2', 'abdiel@gmail.com', NULL, NULL, NULL, '$2y$10$cqtIOL5mOQnxKLJdDCqUeO9x1fCG6vkTC6V5GINjteQz4f0ZPPsXK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-08-23 22:50:38', '2022-08-23 22:50:38');
+(28, 2, 'taliwang', 'taliwang', '2', 'taliwang@gmail.com', '2022-09-11 18:54:00', NULL, NULL, '$2y$10$smxLeHyZZ8m5uCrrHasSX.bB6DJvpr0vU2uB82i8gzZHfPRjJIkaO', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1660243303.jpeg', '2022-08-11 11:29:19', '2022-08-11 11:54:00'),
+(29, 2, 'Abdiel', NULL, '2', 'abdiel@gmail.com', NULL, NULL, NULL, '$2y$10$cqtIOL5mOQnxKLJdDCqUeO9x1fCG6vkTC6V5GINjteQz4f0ZPPsXK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', '2022-08-23 22:50:38', '2022-08-23 22:50:38'),
+(30, 2, 'Dedy Corbuzier', 'corbuzier', '2', 'corbuzier@gmail.com', NULL, NULL, NULL, '$2y$10$cqtIOL5mOQnxKLJdDCqUeO9x1fCG6vkTC6V5GINjteQz4f0ZPPsXK', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'pp-demo.png', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `waktu`
+--
+
+CREATE TABLE `waktu` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `waktu_mulai` time DEFAULT NULL,
+  `waktu_selesai` time DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `waktu`
+--
+
+INSERT INTO `waktu` (`id`, `waktu_mulai`, `waktu_selesai`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '10:00:00', '12:00:00', '2022-09-04 10:24:36', '2022-09-04 10:24:36', NULL),
+(2, '13:00:00', '15:00:00', '2022-09-04 10:24:36', '2022-09-04 10:24:36', NULL),
+(3, '15:00:00', '17:00:00', '2022-09-04 10:24:36', '2022-09-04 10:24:36', NULL),
+(4, '17:00:00', '19:00:00', '2022-09-04 10:24:36', '2022-09-04 10:24:36', NULL),
+(5, '19:00:00', '21:00:00', '2022-09-04 10:24:36', '2022-09-04 10:24:36', NULL),
+(6, '21:00:00', '23:00:00', '2022-09-04 10:24:36', '2022-09-04 10:24:36', NULL);
 
 --
 -- Indexes for dumped tables
@@ -637,6 +791,18 @@ ALTER TABLE `iurans`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `langganan`
+--
+ALTER TABLE `langganan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `latihans`
 --
 ALTER TABLE `latihans`
@@ -655,6 +821,12 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `paket`
+--
+ALTER TABLE `paket`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `roles`
 --
 ALTER TABLE `roles`
@@ -666,6 +838,18 @@ ALTER TABLE `roles`
 ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`),
   ADD KEY `teams_user_id_index` (`user_id`);
+
+--
+-- Indexes for table `trainee`
+--
+ALTER TABLE `trainee`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `trainer`
+--
+ALTER TABLE `trainer`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ukurs`
@@ -681,6 +865,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `waktu`
+--
+ALTER TABLE `waktu`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -689,6 +879,24 @@ ALTER TABLE `users`
 --
 ALTER TABLE `bodyfitts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `jadwal`
+--
+ALTER TABLE `jadwal`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `langganan`
+--
+ALTER TABLE `langganan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `paket`
+--
+ALTER TABLE `paket`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -703,6 +911,18 @@ ALTER TABLE `teams`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `trainee`
+--
+ALTER TABLE `trainee`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `trainer`
+--
+ALTER TABLE `trainer`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `ukurs`
 --
 ALTER TABLE `ukurs`
@@ -712,7 +932,13 @@ ALTER TABLE `ukurs`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `waktu`
+--
+ALTER TABLE `waktu`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

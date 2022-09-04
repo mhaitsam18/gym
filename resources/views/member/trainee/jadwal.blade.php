@@ -43,7 +43,16 @@
                                     <td>{{ $jadwal->waktu->waktu_mulai }}</td>
                                     <td>{{ $jadwal->waktu->waktu_selesai }}</td>
                                     <td>
-                                        @if ($jadwal->accepted_at)
+                                        @if($jadwal->is_saran == 1)
+                                            @if ($jadwal->accepted_at)
+                                                Saran Jadwal diterima
+                                            @elseif($jadwal->rejected_at)
+                                                Saran Jadwal ditolak
+                                            @else
+                                                <a href="/member/trainee/jadwal/terima/{{ $jadwal->id }}" class="btn btn-success">Terima</a>
+                                                <a href="/member/trainee/jadwal/tolak/{{ $jadwal->id }}" class="btn btn-danger">Tolak</a>
+                                            @endif
+                                        @elseif ($jadwal->accepted_at)
                                             Jadwal diterima
                                         @elseif($jadwal->rejected_at)
                                             Jadwal ditolak

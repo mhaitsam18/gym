@@ -28,8 +28,6 @@
         <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
         </li>
-
-
         @can("member")
 
             <li class="nav-item menu-items">
@@ -159,13 +157,6 @@
                 </a>
             </li>
         @endcan
-
-
-
-
-
-    </ul>
-
 
     </ul>
 </nav>

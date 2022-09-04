@@ -94,6 +94,8 @@ Route::middleware(['auth:web'])->group(function () {
 
         Route::get('/member/trainee/berhenti-berlanggan/{trainee}', [MemberTraineeController::class, 'berhentiBerlanggan']);
         // Route::get('/member/trainee/jadwal', [MemberTraineeController::class, 'jadwal']);
+        Route::get('/member/trainee/jadwal/terima/{jadwal}', [TrainerJadwalController::class, 'terima']);
+        Route::get('/member/trainee/jadwal/tolak/{jadwal}', [TrainerJadwalController::class, 'tolak']);
         Route::resource('/member/trainee/jadwal', MemberJadwalController::class);
         Route::resource('/member/trainee', MemberTraineeController::class);
     });
@@ -104,6 +106,10 @@ Route::middleware(['auth:web'])->group(function () {
 
             Route::prefix('jadwal')->group(function () {
                 Route::get('/', [TrainerJadwalController::class, 'index'])->name("trainer.jadwal");
+                Route::get('/terima/{jadwal}', [TrainerJadwalController::class, 'terima'])->name("trainer.jadwal.terima");
+                Route::get('/tolak/{jadwal}', [TrainerJadwalController::class, 'tolak'])->name("trainer.jadwal.tolak");
+
+                Route::put('/{jadwal}', [TrainerJadwalController::class, 'saranJadwal'])->name("trainer.jadwal.saran-jadwal");
             });
             Route::prefix('absensi')->group(function () {
                 Route::get('/', [TrainerAbsensiController::class, 'index'])->name("trainer.absensi");

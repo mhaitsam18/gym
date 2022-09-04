@@ -22,4 +22,34 @@ class TrainerJadwalController extends Controller
 
         return view('trainer.jadwal.index', compact("title", "trainer", "data_jadwal", "data_waktu"));
     }
+
+    public function terima(Jadwal $jadwal)
+    {
+        Jadwal::find($jadwal->id)->update(['accepted_at' => date('Y-m-d H:i:s')]);
+        return back()->with("Jadwal diterima");
+    }
+    public function tolak(Jadwal $jadwal)
+    {
+        Jadwal::find($jadwal->id)->update(['rejected_at' => date('Y-m-d H:i:s')]);
+        return back()->with("Jadwal ditolak");
+    }
+
+    public function saranJadwal(Request $request, Jadwal $jadwal)
+    {
+
+        $data_jadwal = Jadwal::where('trainer_id', $request->trainer_id)
+            ->where('tanggal', $request->tanggal)
+            ->where('waktu_id', $request->waktu_id)->get();
+
+        if ($data_jadwal->count() > 0) {
+            return back()->with('gagal', 'Waktu Tidak tersedia / bentrok, silahkan memilih kembali jadwal yang kosong');
+        } else {
+            $jadwal->update([
+                'tanggal' => $request->tanggal,
+                'waktu_id' => $request->waktu_id,
+                'is_saran' => 1
+            ]);
+            return back()->with("Saran Jadwal Terkirim");
+        }
+    }
 }
