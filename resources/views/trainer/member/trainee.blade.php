@@ -38,10 +38,10 @@
                                     {{ 16 - $trainee->jadwal->where('accepted_at', '!=', null)->count() }}
                                 </td>
                                 <td>
-                                    <a href="/trainer/member/trainee/list-program" class="btn d-block btn-warning">List Program</a>
-                                    <a href="/trainer/member/trainee/histori-bm" class="btn btn-primary d-block">Histori Body Measurement</a>
-                                    <a href="/trainer/member/trainee/histori-bmi" class="btn btn-success d-block">Histori Body Mass Index</a>
-                                    <a href="/trainer/member/trainee/catatan-program" class="btn btn-info d-block">Catatan Program</a>
+                                    <a href="/trainer/member/histori-latihan?member_id={{ $trainee->member_id }}" class="btn btn-primary">Histori Pelatihan</a>
+                                    {{-- <a href="/trainer/member/trainee/histori-bm" class="btn btn-primary d-block">Histori Body Measurement</a> --}}
+                                    {{-- <a href="/trainer/member/trainee/histori-bmi" class="btn btn-success d-block">Histori Body Mass Index</a> --}}
+                                    {{-- <a href="/trainer/member/trainee/catatan-program" class="btn btn-info d-block">Catatan Program</a> --}}
                                 </td>
                             </tr>
                         @endforeach
