@@ -3,7 +3,9 @@
 
 <head>
   {{-- @include('admin.admincss') --}}
-
+  @php
+    use Illuminate\Support\Carbon;
+  @endphp
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Admin</title>
@@ -61,9 +63,124 @@
         <div class="col-12 grid-margin">
 
 
+          
+          @if (!$langganan)
+            <p>Tentukan Paket membership Anda dan pilihan apa yang Anda dapatkan</p>
+            <div class="row">
+              @foreach ($data_paket as $paket)
+                <div class="col-sm-4 grid-margin">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5>{{ $paket->nama }}</h5>
+                      <div class="row">
+                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                          <div class="d-flex d-sm-block d-md-flex align-items-center">
+                            <h2 class="mb-0">{{ number_format($paket->harga,2,',','.') }}</h2>
+                          </div>
+                          <br>
+                          <h6 class="text-muted font-weight-normal">
+                            <p>{{ $paket->keterangan }}</p>
+                          </h6>
 
-          <div class="row">
-            <div class="col-sm-4 grid-margin">
+
+
+                        </div>
+                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                          <i class="icon-lg mdi mdi-account-multiple text-primary ml-auto"></i>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#langgananModal{{ $paket->id }}" data-whatever="@fat">Upgrade</button>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              @endforeach
+            </div>
+          @else
+            @php
+                $expired_at = date('Y-m-d H:i:s', strtotime('+1 month', strtotime($langganan->expired_at)));
+            @endphp
+            <div class="row">
+              <div class="grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                    <h5>Anda sudah menjadi Membership</h5>
+                    <div class="row">
+                      <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                        <div class="d-flex d-sm-block d-md-flex align-items-center">
+                          <ul>
+                            <li>Nama Paket : <h3 class="mb-0">{{ $langganan->paket->nama }}</h3></li>
+                            <li>Harga : <h4 class="mb-0">Rp.{{ number_format($langganan->paket->harga,2,',','.') }}</h4></li>
+                            <li>Masa Berlaku s/d : <span class="badge badge-danger">{{ Carbon::parse($langganan->expired_at)->translatedFormat('j F Y') }}</span></li>
+                          </ul>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">
+                          <p>{{ $langganan->paket->keterangan }}</p>
+                        </h6>
+                        ID berlanggan : <h1 class="mb-0">{{ $langganan->id }}</h1>
+                      </div>
+                      <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                        <i class="icon-lg mdi mdi-account-multiple text-primary ml-auto"></i>
+                      </div>
+                    </div>
+                    @php
+                        $sekarang = new DateTime(date('Y-m-d H:i:s'));
+                        $expired = new DateTime($langganan->expired_at);
+                        $diff = $sekarang->diff($expired);
+                        $selisih = $diff->days;
+                        $jam = $diff->h;
+                        $menit = $diff->i;
+                        $detik = $diff->s;
+                    @endphp
+                  </div>
+                </div>
+                @if ($selisih <= 5)
+                  @if ($langganan->is_subscribe == 1)
+                    <div class="card">
+                      <div class="card-body">
+                        <h4>Sisa Berlangganan Anda tinggal {{ $selisih }} hari, {{ $jam }} jam, {{ $menit }} menit, {{ $detik }} detik. Apakah Anda ingin melanjutkan?</h4>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#langgananModal{{ $langganan->paket->id }}" data-whatever="@fat">Lanjutkan</button>
+                        <a href="/member/langganan/berhenti-berlanggan/{{ $langganan->id }}" class="btn btn-danger">Batalkan berlanggan</a>
+                      </div>
+                    </div>
+                  @else
+                    <div class="card mt-3">
+                      <div class="card-body">
+                        <h4 class="text-muted">Sisa Berlangganan Anda tinggal {{ $selisih }} hari, {{ $jam }} jam, {{ $menit }} menit, {{ $detik }} detik. Silahkan memilih paket untuk melanjutkan</h4>
+                      </div>
+                    </div>
+                    <div class="row mt-3">
+                        @foreach ($data_paket as $paket)
+                          <div class="col-sm-4 grid-margin">
+                            <div class="card">
+                              <div class="card-body">
+                                <h5>{{ $paket->nama }}</h5>
+                                <div class="row">
+                                  <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                                    <div class="d-flex d-sm-block d-md-flex align-items-center">
+                                      <h2 class="mb-0">{{ number_format($paket->harga,2,',','.') }}</h2>
+                                    </div>
+                                    <br>
+                                    <h6 class="text-muted font-weight-normal">
+                                      <p>{{ $paket->keterangan }}</p>
+                                    </h6>
+                                  </div>
+                                  <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                                    <i class="icon-lg mdi mdi-account-multiple text-primary ml-auto"></i>
+                                  </div>
+                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#langgananModal{{ $paket->id }}" data-whatever="@fat">Upgrade</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        @endforeach
+                    </div>
+                  @endif
+                @endif
+              </div>
+            </div>
+          @endif
+            {{-- <div class="col-sm-4 grid-margin">
               <div class="card">
                 <div class="card-body">
                   <h5>MY FIT</h5>
@@ -115,15 +232,56 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </div> --}}
 
 
         </div>
       </div>
     </div>
-
-
+    @foreach ($data_paket as $paket)
+      <div class="modal fade" id="langgananModal{{ $paket->id }}" tabindex="-1" role="dialog" aria-labelledby="langgananModal{{ $paket->id }}Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="langgananModal{{ $paket->id }}Label">Upload Bukti</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="/member/langganan" method="post" enctype="multipart/form-data">
+              <div class="modal-body">
+                @csrf
+                <input type="hidden" name="paket_id" value="{{ $paket->id }}">
+                <input type="hidden" name="member_id" value="{{ auth()->user()->id }}">
+                <input type="hidden" name="expired_at" value="{{ $expired_at }}">
+                <div class="form-group">
+                  <h5>Cara Upgrade Member</h5>
+                  <p>Silahkan transer Sesuai Nominal ke no Rek 123123123123 Mandiri a.n pt.Gym <br>
+                    dan kirim bukti transernya
+                  </p>
+                </div>
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="1" name="is_subscribe" id="subscribe">
+                    <label class="form-check-label" for="subscribe">
+                      Langganan?
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Bukti Transfer</label>
+                  <input type="file" class="form-control-file" name="is_paid" id="is_paid" required>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                <input class="btn btn-success" type="submit" value="OK">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>        
+    @endforeach
     <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">

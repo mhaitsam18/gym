@@ -75,4 +75,13 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function langganan()
+    {
+        return $this->hasMany(Langganan::class);
+    }
+    public function trainee()
+    {
+        return $this->hasMany(Trainee::class);
+    }
 }

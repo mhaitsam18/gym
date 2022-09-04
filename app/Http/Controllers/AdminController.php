@@ -14,7 +14,11 @@ use App\Models\Assessment;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\DateTime;
-
+use App\Models\Langganan;
+use App\Models\Membership;
+use App\Models\Paket;
+use App\Models\Trainee;
+use App\Models\Trainer;
 
 class AdminController extends Controller
 {
@@ -345,9 +349,17 @@ class AdminController extends Controller
     $data = Auth::user();
     $data2 = User::where('id', $data)->value('name');
     $usertype = Auth::user()->usertype;
-    $id = Auth::user()->id;
+    $id = auth()->user()->id;
     $foto = User::where('id', $id)->value('profile_photo_path');
-    return view('admin.member', compact('usertype', 'data2', 'data', 'foto'));
+    $data_paket = Paket::all();
+    $expired_at = date('Y-m-d H:i:s', strtotime('+1 month', strtotime(date('Y-m-d H:i:s'))));
+
+    $langganan = Langganan::where('member_id', $id)
+      ->where('expired_at', '>', date('Y-m-d H:i:s'))
+      ->latest()
+      ->first();
+
+    return view('admin.member', compact('usertype', 'data2', 'data', 'foto', 'data_paket', 'expired_at', 'langganan'));
   }
 
   public function trainer()
@@ -357,7 +369,14 @@ class AdminController extends Controller
     $usertype = Auth::user()->usertype;
     $id = Auth::user()->id;
     $foto = User::where('id', $id)->value('profile_photo_path');
-    return view('admin.trainer', compact('usertype', 'data2', 'data', 'foto'));
+    $data_trainer = Trainer::all();
+    $expired_at = date('Y-m-d H:i:s', strtotime('+1 month', strtotime(date('Y-m-d H:i:s'))));
+
+    $trainee = Trainee::where('member_id', $id)
+      ->where('expired_at', '>', date('Y-m-d H:i:s'))
+      ->latest()
+      ->first();
+    return view('admin.trainer', compact('usertype', 'data2', 'data', 'foto', 'data_trainer', 'expired_at', 'trainee'));
   }
 
   public function uploadmember1(Request $request, $id)

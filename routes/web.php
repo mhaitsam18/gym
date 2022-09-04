@@ -8,7 +8,8 @@ use App\Http\Controllers\FullCalenderController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AtlitController;
 use App\Http\Controllers\MemberController;
-
+use App\Http\Controllers\MemberLanggananController;
+use App\Http\Controllers\MemberTraineeController;
 use App\Http\Controllers\PelatihController;
 use App\Http\Controllers\TrainerAbsensiController;
 use App\Http\Controllers\TrainerAssessmentController;
@@ -86,6 +87,13 @@ Route::middleware(['auth:web'])->group(function () {
         Route::get('/hadir/{id}', [AdminController::class, 'hadir']);
         Route::get('/alfa/{id}', [AdminController::class, 'alfa']);
         Route::get('/izin/{id}', [AdminController::class, 'izin']);
+
+        Route::get('/member/langganan/berhenti-berlanggan/{langganan}', [MemberLanggananController::class, 'berhentiBerlanggan']);
+        Route::resource('/member/langganan', MemberLanggananController::class);
+
+        Route::get('/member/trainee/berhenti-berlanggan/{trainee}', [MemberTraineeController::class, 'berhentiBerlanggan']);
+        Route::get('/member/trainee/jadwal', [MemberTraineeController::class, 'jadwal']);
+        Route::resource('/member/trainee', MemberTraineeController::class);
     });
 
     Route::middleware(['auth.trainer'])->group(function () {
