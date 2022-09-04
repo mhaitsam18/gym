@@ -45,6 +45,12 @@ class TrainerDetailProgramLatihanController extends Controller
         return back()->with('success', 'Program Latihan berhasil ditambahkan');
     }
 
+    public function getTable(Request $request)
+    {
+        $data_detail_program_latihan = DetailProgramLatihan::where('program_latihan_id', $request->program_latihan_id)->get();
+        return view('trainer.program-latihan.detail-tabel', compact('data_detail_program_latihan'));
+    }
+
     /**
      * Display the specified resource.
      *

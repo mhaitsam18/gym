@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CatatanLatihan;
+use App\Models\DetailProgramLatihan;
 use App\Models\Jadwal;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,10 @@ class TrainerCatatanLatihanController extends Controller
 
     public function jadwal(Jadwal $jadwal)
     {
+        $title = "Catatan Latihan";
+        $catatan_latihan = CatatanLatihan::where('jadwal_id', $jadwal->id)->first();
+        $data_detail_program_latihan = DetailProgramLatihan::where('program_latihan_id', $catatan_latihan->program_latihan_id)->get();
+        return view('trainer.catatan-latihan.index', compact('title', 'catatan_latihan', 'data_detail_program_latihan'));
     }
 
     /**

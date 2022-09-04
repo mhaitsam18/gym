@@ -120,6 +120,8 @@ Route::middleware(['auth:web'])->group(function () {
             Route::prefix('presensi')->group(function () {
                 Route::get('/', [TrainerPresensiController::class, 'index'])->name("trainer.presensi");
             });
+            Route::post('/program-latihan/get-detail-table', [TrainerDetailProgramLatihanController::class, 'getTable']);
+
             Route::resource('/program-latihan', TrainerProgramLatihanController::class);
             Route::prefix('program-latihan')->group(function () {
                 Route::get('/', [TrainerProgramLatihanController::class, 'index'])->name("trainer.program-latihan");

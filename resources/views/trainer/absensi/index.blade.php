@@ -36,8 +36,8 @@ use Illuminate\Support\Carbon;
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>
-                                    @if ($presensi->jadwal->catatan)
-                                        <a href="/trainer/catatan-latihan/jadwal{{ $presensi->jadwal_id }}" class="btn btn-info">Lihat Catatan Latihan</a>
+                                    @if ($presensi->jadwal->catatanLatihan)
+                                        <a href="/trainer/catatan-latihan/jadwal/{{ $presensi->jadwal_id }}" class="btn btn-info">Lihat Catatan Latihan</a>
                                     @else
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#catatanLatihanModal{{ $presensi->jadwal_id }}">Buat Catatan Pelatihan</button>
                                     @endif
@@ -91,7 +91,7 @@ use Illuminate\Support\Carbon;
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nama">Program Latihan</label>
-                                <select name="program_latihan_id" id="program_latiha_id" class="form-control bg-light text-dark">
+                                <select name="program_latihan_id" id="program_latiha_id" class="form-control bg-light text-dark program-latihan">
                                     <option value="" selected disabled>Pilih Program</option>
                                     @foreach ($data_program_latihan as $program_latihan)
                                         <option value="{{ $program_latihan->id }}">{{ $program_latihan->nama }}</option>
@@ -147,5 +147,22 @@ use Illuminate\Support\Carbon;
     @endforeach
 @endsection
 @section('script')
-
+<script>
+    $('.program-latihan').on('change', function () {
+        const program_latihan_id = $(this).val();
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "/trainer/program-latihan/get-detail-table",
+            type: 'post',
+            data: {
+                program_latihan_id: program_latihan_id
+            },
+            success: function(data) {
+                $(".list-detail-program").html(data);
+            }
+        });
+    });
+</script>
 @endsection
