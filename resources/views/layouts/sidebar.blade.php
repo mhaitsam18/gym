@@ -120,14 +120,14 @@
                 </a>
             </li>
 
-            <li class="nav-item menu-items @if (request()->routeIs('trainer.assessment')) active @endif">
+            {{-- <li class="nav-item menu-items @if (request()->routeIs('trainer.assessment')) active @endif">
                 <a class="nav-link" href="{{route('trainer.assessment')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-map"></i>
                     </span>
                     <span class="menu-title">Assessment</span>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="nav-item menu-items @if (request()->routeIs('trainer.program-latihan')) active @endif">
                 <a class="nav-link" href="{{route('trainer.program-latihan')}}">
@@ -147,23 +147,23 @@
                 </a>
             </li>
 
-            <li class="nav-item menu-items @if (request()->routeIs('trainer.body-measurement')) active @endif">
+            {{-- <li class="nav-item menu-items @if (request()->routeIs('trainer.body-measurement')) active @endif">
                 <a class="nav-link " href="{{route('trainer.body-measurement')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-map"></i>
                     </span>
                     <span class="menu-title">Body Measurement</span>
                 </a>
-            </li>
+            </li> --}}
 
-            <li class="nav-item menu-items @if (request()->routeIs('trainer.body-mass-index')) active @endif">
+            {{-- <li class="nav-item menu-items @if (request()->routeIs('trainer.body-mass-index')) active @endif">
                 <a class="nav-link " href="{{route('trainer.body-mass-index')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-map"></i>
                     </span>
                     <span class="menu-title">Body Mass Index</span>
                 </a>
-            </li>
+            </li> --}}
         @endcan
 
     </ul>

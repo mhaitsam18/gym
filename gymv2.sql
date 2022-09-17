@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 05, 2022 at 12:37 AM
+-- Generation Time: Sep 17, 2022 at 08:00 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -305,7 +305,8 @@ CREATE TABLE `jadwal` (
 
 INSERT INTO `jadwal` (`id`, `trainee_id`, `member_id`, `trainer_id`, `tanggal`, `waktu_id`, `accepted_at`, `rejected_at`, `is_saran`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 1, 8, 2, '2022-09-05', 3, '2022-09-04 13:25:07', NULL, 0, '2022-09-04 05:15:06', '2022-09-04 05:15:06', NULL),
-(2, 1, 8, 2, '2022-09-06', 5, '2022-09-04 09:10:45', NULL, 1, '2022-09-04 07:33:43', '2022-09-04 09:10:45', NULL);
+(2, 1, 8, 2, '2022-09-06', 5, '2022-09-04 09:10:45', NULL, 1, '2022-09-04 07:33:43', '2022-09-04 09:10:45', NULL),
+(3, 2, 8, 2, '2022-09-20', 4, '2022-09-17 10:26:44', NULL, 1, '2022-09-17 10:22:22', '2022-09-17 10:31:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -329,7 +330,8 @@ CREATE TABLE `langganan` (
 --
 
 INSERT INTO `langganan` (`id`, `member_id`, `paket_id`, `expired_at`, `is_subscribe`, `is_paid`, `created_at`, `updated_at`) VALUES
-(1, 8, 1, '2022-09-06 07:26:46', 0, 'bukti-transfer/zkclIHKZzVrRhlBzWTNYWZVqBxSclfDWNMVTFdWT.jpg', '2022-08-06 07:27:02', '2022-09-04 07:29:46');
+(1, 8, 1, '2022-09-06 07:26:46', 0, 'bukti-transfer/zkclIHKZzVrRhlBzWTNYWZVqBxSclfDWNMVTFdWT.jpg', '2022-08-06 07:27:02', '2022-09-04 07:29:46'),
+(2, 8, 1, '2022-10-17 10:21:14', 1, 'bukti-transfer/inqClE3SILUX1ZieRf3hzzd2waHysWNa4FAJKtoY.jpg', '2022-09-17 10:21:38', '2022-09-17 10:21:38');
 
 -- --------------------------------------------------------
 
@@ -505,17 +507,19 @@ CREATE TABLE `presensi` (
   `user_member_id` bigint(20) UNSIGNED DEFAULT NULL,
   `is_trainer_present` tinyint(1) DEFAULT NULL,
   `is_member_present` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `deleted_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `presensi`
 --
 
-INSERT INTO `presensi` (`id`, `jadwal_id`, `user_trainer_id`, `user_member_id`, `is_trainer_present`, `is_member_present`, `created_at`, `deleted_at`) VALUES
-(1, 1, 29, 8, NULL, NULL, '2022-09-04 16:35:56', '2022-09-04 16:35:56'),
-(2, 2, 29, 8, NULL, NULL, '2022-09-04 16:35:56', '2022-09-04 16:35:56');
+INSERT INTO `presensi` (`id`, `jadwal_id`, `user_trainer_id`, `user_member_id`, `is_trainer_present`, `is_member_present`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 29, 8, NULL, NULL, '2022-09-04 16:35:56', '2022-09-17 17:25:20', NULL),
+(2, 2, 29, 8, NULL, NULL, '2022-09-04 16:35:56', '2022-09-17 17:25:20', NULL),
+(3, 3, 29, 8, NULL, NULL, '2022-09-17 10:26:44', '2022-09-17 10:26:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -676,7 +680,8 @@ CREATE TABLE `trainee` (
 --
 
 INSERT INTO `trainee` (`id`, `member_id`, `trainer_id`, `expired_at`, `is_subscribe`, `is_paid`, `created_at`, `updated_at`) VALUES
-(1, 8, 2, '2022-09-06 07:31:16', 1, 'bukti-transfer/XmNUYjX9fdyJ3eDQBGyfFAu8lPGjHeA2atItGK58.jpg', '2022-08-06 07:31:49', '2022-08-06 15:39:52');
+(1, 8, 2, '2022-09-06 07:31:16', 1, 'bukti-transfer/XmNUYjX9fdyJ3eDQBGyfFAu8lPGjHeA2atItGK58.jpg', '2022-08-06 07:31:49', '2022-08-06 15:39:52'),
+(2, 8, 2, '2022-10-17 10:21:51', 1, 'bukti-transfer/zB2DbR6fd6XZqwtdY9cJfqvEfyLFbO4nNYm0EnC0.jpg', '2022-09-17 10:22:02', '2022-09-17 10:22:02');
 
 -- --------------------------------------------------------
 
@@ -1023,13 +1028,13 @@ ALTER TABLE `detail_program_latihan`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `langganan`
 --
 ALTER TABLE `langganan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `paket`
@@ -1041,7 +1046,7 @@ ALTER TABLE `paket`
 -- AUTO_INCREMENT for table `presensi`
 --
 ALTER TABLE `presensi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `program_latihan`
@@ -1065,7 +1070,7 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `trainee`
 --
 ALTER TABLE `trainee`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `trainer`
